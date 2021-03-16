@@ -1,14 +1,60 @@
 ul {
   list-style: none;
+  padding: 0;
+}
+
+.NavDiv {
+  position: relative;
+  /* display: flex; */
+  background-color: #90caf9;
+  align-items: center;
 }
 
 .NavLink {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 7px 40px;
   color: #2a2a2a;
-  font-size: 20px;
+  font-size: 26px;
   font-weight: 500;
+  font-family: sans-serif;
   text-decoration: none;
 }
 
+@media screen and (min-width: 480px) {
+  NavLink {
+    margin: 0;
+    margin-right: 5px;
+    padding: 4px 5px;
+    font-size: 15px;
+  }
+}
+
+.nav_img {
+  position: absolute;
+  width: 180px;
+  top: 60px;
+  right: 20px;
+}
+
+@media screen and (min-width: 480px) {
+  nav_img {
+    width: 80px;
+  }
+}
+
+.link {
+  font-size: 20px;
+  padding: 5px 40px;
+}
+
 .NavLink-active {
-  color: blue;
+  color: white;
+  background-color: #01b4e4;
+  border-radius: 3px;
+  /* border-bottom: 2px solid grey; */
+}
+
+.NotFound {
+  color: red;
 }
