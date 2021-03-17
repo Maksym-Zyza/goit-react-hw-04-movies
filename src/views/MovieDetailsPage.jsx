@@ -34,7 +34,7 @@ class MovieDetailsPage extends React.Component {
       vote_count,
       // genres,
     } = this.state;
-    console.log(this.state);
+    // console.log(this.state);
 
     return (
       <div className="movie_div container">
@@ -85,7 +85,7 @@ class MovieDetailsPage extends React.Component {
 
         <Switch>
           <Route path="/movies/:movieId/cast" component={Cast} />
-          <Route path="movies/:movieId/reviews" component={Reviews} />
+          <Route path="/movies/:movieId/reviews" component={Reviews} />
         </Switch>
       </div>
     );

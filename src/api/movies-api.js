@@ -60,7 +60,7 @@ async function getMovieCredits(movie_id) {
   try {
     const url = { url: `movie/${movie_id}/credits` };
     const { data } = axios(url, movie_id);
-    return data.results;
+    return data;
   } catch (error) {
     alert(error);
     return [];
@@ -72,7 +72,7 @@ async function getMoviesReviews(movie_id) {
   try {
     const url = { url: `movie/${movie_id}/reviews` };
     const { data } = axios(url, movie_id);
-    return data.results;
+    return data;
   } catch (error) {
     alert(error);
     return [];

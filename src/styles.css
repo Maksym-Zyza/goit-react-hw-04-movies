@@ -41,20 +41,20 @@ img {
 
 .NavLink {
   display: inline-block;
-  margin-right: 10px;
   padding: 7px 50px;
-  font-size: 24px;
+  font-size: 26px;
   color: #2a2a2a;
   font-weight: 500;
   font-family: sans-serif;
   text-decoration: none;
+  color: #83cca4;
 }
 
 @media screen and (max-width: 900px) {
   .NavLink {
     margin-right: 10px;
-    padding: 10px 20px;
-    font-size: 20px;
+    padding: 8px;
+    font-size: 24px;
   }
 }
 
@@ -110,6 +110,8 @@ img {
 
 .movies_li {
   position: relative;
+  text-align: center;
+  background-color: #90caf9;
   filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
   box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
 }
@@ -122,14 +124,15 @@ img {
   width: 100%;
   height: 490px;
   object-fit: cover;
+  border-bottom: 2px solid white;
 }
 
 .movies_title {
   display: inline-block;
-  margin: 15px 10px;
+  margin: 12px 10px;
   font-size: 16px;
   font-weight: 500;
-  color: #2a2a2a;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -158,7 +161,7 @@ img {
 
 .movie_div {
   position: relative;
-  margin-left: 20px;
+  /* margin-left: 20px; */
 }
 
 .movie_title {
