@@ -21,28 +21,32 @@ class HomePage extends React.Component {
 
   render() {
     const { trending, src, location } = this.state;
+    console.log(trending);
 
     return (
-      <div>
-        <h2> Daily trending movies </h2>
-        <ul>
-          {trending.map(
-            ({ id, poster_path, original_title, popularity, vote_average }) => (
-              <Link
-                to={{
-                  pathname: `/movies/${id}`,
-                  from: location.pathname,
-                }}
-              >
-                <li key={id}>
-                  <img src={`${src}${poster_path}`} alt={original_title} />
-                  <title>{original_title}</title>
-                  <p>Popularity {popularity}</p>
-                  <p>User rating {vote_average}</p>
-                </li>
-              </Link>
-            ),
-          )}
+      <div className="container">
+        <h2 className="page_title"> Today trending movies </h2>
+        <ul className="movies_ul">
+          {trending.map(({ id, poster_path, title, vote_average }) => (
+            <Link
+              to={{
+                pathname: `/movies/${id}`,
+                from: location.pathname,
+              }}
+            >
+              <li className="movies_li" key={id}>
+                <img
+                  className="movies_img"
+                  src={`${src}${poster_path}`}
+                  alt={title}
+                />
+                <p className="movies_title"> {title}</p>
+                <p className="movies_rating">
+                  <span className="rating">{vote_average}</span>
+                </p>
+              </li>
+            </Link>
+          ))}
         </ul>
       </div>
     );

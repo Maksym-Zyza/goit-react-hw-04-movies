@@ -37,35 +37,49 @@ class MovieDetailsPage extends React.Component {
     console.log(this.state);
 
     return (
-      <>
-        <h2>{original_title}</h2>
+      <div className="movie_div container">
+        <h2 className="movie_title">{original_title}</h2>
         {poster_path && (
-          <img src={`${src}${poster_path}`} alt={original_title} />
+          <img
+            className="movie_img"
+            src={`${src}${poster_path}`}
+            alt={original_title}
+          />
         )}
 
-        <p>Release {release_date}</p>
-        <h3>Overview </h3>
-        <span>{overview}</span>
-        <p> Popularity {popularity}</p>
-        <p> User rating {vote_average}</p>
-        <p> User count {vote_count}</p>
-        <h3>Genres</h3>
-        {/* {<span>{genres.map(genre => genre.name).join(' ')}</span>} */}
+        <div className="movie_info">
+          <p className="movie_text">
+            Release: <span className="movie_data">{release_date}</span>
+          </p>
+          <h3 className="movie_overview">Overview </h3>
+          <span className="movie_text">{overview}</span>
+          <p className="movie_text">
+            Popularity: <span className="movie_data">{popularity}</span>
+          </p>
+          <p className="movie_text">
+            Rating: <span className="movie_data">{vote_average}</span>
+          </p>
+          <p className="movie_text">
+            Count: <span className="movie_data">{vote_count}</span>
+          </p>
+          <h3 className="movie_text">Genres</h3>
+          {/* {<span>{genres.map(genre => genre.name).join(' ')}</span>} */}
+        </div>
 
-        <div className="NavDiv">
+        <div className="navlink_div">
           <NavLink
             to={`${this.props.match.url}/cast`}
             className="NavLink link"
             activeClassName="NavLink-active"
           >
-            Cast
+            Cast <span className="link_sign">&#9660;</span>
           </NavLink>
           <NavLink
             to={`${this.props.match.url}/reviews`}
             className="NavLink link"
             activeClassName="NavLink-active"
           >
-            Reviews
+            Reviews <span className="link_sign">&#9660;</span>
           </NavLink>
         </div>
 
@@ -73,7 +87,7 @@ class MovieDetailsPage extends React.Component {
           <Route path="/movies/:movieId/cast" component={Cast} />
           <Route path="movies/:movieId/reviews" component={Reviews} />
         </Switch>
-      </>
+      </div>
     );
   }
 }
