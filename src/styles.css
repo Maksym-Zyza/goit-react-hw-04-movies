@@ -72,6 +72,7 @@ img {
   padding: 5px;
   border: 2px solid #01b4e4;
   border-radius: 5px;
+  margin-right: 20px;
 }
 
 .link_sign {
@@ -111,7 +112,7 @@ img {
 .movies_li {
   position: relative;
   text-align: center;
-  background-color: #90caf9;
+  background-color: #01b4e4;
   filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
   box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
 }
@@ -161,13 +162,12 @@ img {
 
 .movie_div {
   position: relative;
-  /* margin-left: 20px; */
 }
 
 .movie_title {
   font-size: 20px;
   text-align: center;
-  color: #2a2a2a;
+  color: #01b4e4;
 }
 
 .movie_img {

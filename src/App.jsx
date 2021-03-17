@@ -3,7 +3,7 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 import HomePage from './views/HomePage';
 import MoviesPage from './views/MoviesPage';
 import MovieDetailsPage from './views/MovieDetailsPage';
-import NotFoundViev from './views/NotFoundViev';
+// import NotFoundViev from './views/NotFoundViev';
 import './styles.css';
 
 class App extends React.Component {
@@ -50,7 +50,7 @@ class App extends React.Component {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/movies" component={MoviesPage} />
           <Route path="/movies/:movieId" component={MovieDetailsPage} />
-          <Route component={NotFoundViev} />
+          {/* <Route component={NotFoundViev} /> */}
         </Switch>
       </>
     );
