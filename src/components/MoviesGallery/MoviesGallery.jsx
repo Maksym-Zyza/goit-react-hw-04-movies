@@ -1,33 +1,21 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import api from '../api/movies-api';
 
-class HomePage extends React.Component {
+class MoviesGallery extends React.Component {
   state = {
-    trending: [],
     src: 'https://image.tmdb.org/t/p/w500',
     location: useLocation,
   };
 
-  componentDidMount() {
-    this.fetchTrending();
-  }
-
-  fetchTrending = () => {
-    api.getMoviesTrending().then(results => {
-      this.setState({ trending: [...results] });
-    });
-  };
-
   render() {
-    const { trending, src, location } = this.state;
-    console.log(trending);
+    const { src, location } = this.state;
+    const { movies } = this.props;
+    console.log(this.props);
 
     return (
       <div className="container">
-        <h2 className="page_title"> Today trending movies </h2>
         <ul className="movies_ul">
-          {trending.map(({ id, poster_path, title, vote_average }) => (
+          {movies.map(({ id, poster_path, title, vote_average }) => (
             <Link
               key={id}
               to={{
@@ -54,4 +42,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default MoviesGallery;

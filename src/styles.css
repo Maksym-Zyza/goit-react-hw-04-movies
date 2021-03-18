@@ -1,5 +1,7 @@
 html {
   box-sizing: border-box;
+  width: 100vw;
+  overflow-x: hidden;
 }
 
 *,
@@ -9,9 +11,13 @@ html {
 }
 
 body {
+  margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif,
-    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  color: #212121;
+  background-color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ul {
@@ -204,4 +210,12 @@ img {
 /* Movie Navigation */
 .navlink_div {
   margin-top: 20px;
+}
+
+/* loaderDiv */
+.loaderDiv {
+  display: flex;
+  height: 80px;
+  justify-content: center;
+  align-items: center;
 }

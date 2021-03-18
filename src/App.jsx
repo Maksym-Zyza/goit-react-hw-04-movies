@@ -7,15 +7,6 @@ import MovieDetailsPage from './views/MovieDetailsPage';
 import './styles.css';
 
 class App extends React.Component {
-  // state = {
-  //   query: '',
-  //   page: 1,
-  //   details: [],
-  //   credits: [],
-  //   reviews: [],
-  //   error: null,
-  // };
-
   render() {
     return (
       <>
