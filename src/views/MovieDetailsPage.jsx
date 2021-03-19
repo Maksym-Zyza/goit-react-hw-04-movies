@@ -34,6 +34,7 @@ class MovieDetailsPage extends React.Component {
       vote_count,
       // genres,
     } = this.state;
+    const { match } = this.props;
     // console.log(this.state);
 
     return (
@@ -48,34 +49,34 @@ class MovieDetailsPage extends React.Component {
         )}
 
         <div className="movie_info">
-          <p className="movie_text">
-            Release: <span className="movie_data">{release_date}</span>
+          <p className="text">
+            Release: <span className="data">{release_date}</span>
           </p>
           <h3 className="movie_overview">Overview </h3>
-          <span className="movie_text">{overview}</span>
-          <p className="movie_text">
-            Popularity: <span className="movie_data">{popularity}</span>
+          <span className="text">{overview}</span>
+          <p className="text">
+            Popularity: <span className="data">{popularity}</span>
           </p>
-          <p className="movie_text">
-            Rating: <span className="movie_data">{vote_average}</span>
+          <p className="text">
+            Rating: <span className="data">{vote_average}</span>
           </p>
-          <p className="movie_text">
-            Count: <span className="movie_data">{vote_count}</span>
+          <p className="text">
+            Count: <span className="data">{vote_count}</span>
           </p>
-          <h3 className="movie_text">Genres</h3>
+          <h3 className="text">Genres</h3>
           {/* {<span>{genres.map(genre => genre.name).join(' ')}</span>} */}
         </div>
 
         <div className="navlink_div">
           <NavLink
-            to={`${this.props.match.url}/cast`}
+            to={`${match.url}/cast`}
             className="NavLink link"
             activeClassName="NavLink-active"
           >
             Cast <span className="link_sign">&#9660;</span>
           </NavLink>
           <NavLink
-            to={`${this.props.match.url}/reviews`}
+            to={`${match.url}/reviews`}
             className="NavLink link"
             activeClassName="NavLink-active"
           >
@@ -84,8 +85,8 @@ class MovieDetailsPage extends React.Component {
         </div>
 
         <Switch>
-          <Route path="/movies/:movieId/cast" component={Cast} />
-          <Route path="/movies/:movieId/reviews" component={Reviews} />
+          <Route path={`${match.path}/cast`} component={Cast} />
+          <Route path={`${match.path}/reviews`} component={Reviews} />
         </Switch>
       </div>
     );

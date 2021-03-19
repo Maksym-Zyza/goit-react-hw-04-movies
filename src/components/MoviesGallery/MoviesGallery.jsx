@@ -10,7 +10,6 @@ class MoviesGallery extends React.Component {
   render() {
     const { src, location } = this.state;
     const { movies } = this.props;
-    console.log(this.props);
 
     return (
       <div className="container">

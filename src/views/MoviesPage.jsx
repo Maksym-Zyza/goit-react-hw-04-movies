@@ -56,7 +56,8 @@ class MoviesPage extends React.Component {
     const { movies, isLoading, error } = this.state;
     const renderBtn = movies.length > 0 && !isLoading;
     const nothing = movies.length === 0;
-    // console.log(movies);
+    // console.log('movies >', movies);
+
     return (
       <div>
         <Searchbar onSubmit={this.formSubmitQuery} />

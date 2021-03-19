@@ -198,11 +198,11 @@ img {
   }
 }
 
-.movie_text {
+.text {
   display: block;
 }
 
-.movie_data {
+.data {
   color: #01b4e4;
   font-weight: 500;
 }

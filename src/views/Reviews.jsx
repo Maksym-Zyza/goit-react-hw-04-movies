@@ -1,5 +1,6 @@
 import React from 'react';
-import api from '../api/movies-api';
+// import api from '../api/movies-api';
+import axios from 'axios';
 
 class Reviews extends React.Component {
   state = {};
@@ -12,13 +13,28 @@ class Reviews extends React.Component {
     const { movieId } = this.props.match.params;
     console.log(movieId);
 
-    api.getMoviesReviews(movieId).then(results => {
-      this.setState({ ...results });
-    });
+    // api.getMoviesReviews(movieId).then(results => {
+    //   this.setState({ ...results });
+    // });
+
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=523a15ded98cd05fab36993344058e43`,
+      )
+      .then(response => {
+        this.setState({ ...response.data.results });
+      })
+      .catch(error => {
+        console.log(error);
+        return [];
+      });
   };
 
   render() {
+    const { author } = this.state;
     console.log(this.state);
+    console.log(author);
+
     return (
       <div>
         <h2> Reviews page </h2>

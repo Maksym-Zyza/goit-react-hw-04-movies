@@ -21,7 +21,7 @@ class HomePage extends React.Component {
 
   render() {
     const { trending, src, location } = this.state;
-    console.log(trending);
+    // console.log('trending >', trending);
 
     return (
       <div className="container">
