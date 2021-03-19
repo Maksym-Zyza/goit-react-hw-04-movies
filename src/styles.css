@@ -50,7 +50,7 @@ img {
   padding: 7px 50px;
   font-size: 26px;
   color: #2a2a2a;
-  font-weight: 500;
+  font-weight: 700;
   font-family: sans-serif;
   text-decoration: none;
   color: #83cca4;
@@ -196,6 +196,7 @@ img {
 @media screen and (max-width: 700px) {
   .movie_info {
     position: static;
+    padding-right: 10px;
   }
 }
 
