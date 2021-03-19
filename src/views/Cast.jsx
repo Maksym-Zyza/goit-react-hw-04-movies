@@ -16,8 +16,7 @@ class Cast extends React.Component {
 
   fetchCredits = () => {
     const { movieId } = this.props.match.params;
-    // this.setState({ isLoading: true });
-    console.log(movieId);
+    // console.log(movieId);
 
     // api.getMovieCredits(movieId).then(cast => {
     //   this.setState({ ...cast });
@@ -34,43 +33,37 @@ class Cast extends React.Component {
         console.log(error);
         return [];
       });
-    // .finally(() => this.setState({ isLoading: false }));
   };
 
   render() {
-    const { cast, src } = this.state.cast;
-    console.log(this.state);
-    // const author = cast.find(author => author.id);
-    // console.log(author);
+    const { cast, src } = this.state;
+    // console.log(cast);
 
     return (
       <>
-        <h2> Cast page </h2>
-        {cast && (
-          <div className="container">
-            <ul className="movies_ul">
-              {cast.map(({ cast_id, profile_path, name, character }) => (
-                <li key={cast_id} className="movies_li">
-                  {profile_path ? (
-                    <img
-                      src={`${src}${profile_path}`}
-                      alt="Movie poster"
-                      className="movies_img"
-                    />
-                  ) : (
-                    <img
-                      src={defaultImg}
-                      alt="Was not found"
-                      className="movies_img"
-                    />
-                  )}
-                  <h3 className="movies_title">{name}</h3>
-                  <p>Character: {character}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
+        <div className="container">
+          <ul className="cast_ul">
+            {cast.map(({ cast_id, profile_path, name, character }) => (
+              <li key={cast_id} className="cast_li">
+                {profile_path ? (
+                  <img
+                    src={`${src}${profile_path}`}
+                    alt="Movie poster"
+                    className="cast_img"
+                  />
+                ) : (
+                  <img
+                    src={defaultImg}
+                    alt="Was not found"
+                    className="cast_img"
+                  />
+                )}
+                <h3 className="cast_title">{name}</h3>
+                <p className="cast_text">{character}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
       </>
     );
   }

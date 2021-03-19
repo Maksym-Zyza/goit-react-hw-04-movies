@@ -32,7 +32,7 @@ class MovieDetailsPage extends React.Component {
       popularity,
       vote_average,
       vote_count,
-      // genres,
+      genres,
     } = this.state;
     const { match } = this.props;
     // console.log(this.state);
@@ -64,7 +64,13 @@ class MovieDetailsPage extends React.Component {
             Count: <span className="data">{vote_count}</span>
           </p>
           <h3 className="text">Genres</h3>
-          {/* {<span>{genres.map(genre => genre.name).join(' ')}</span>} */}
+          {genres
+            ? genres.map(({ id, name }) => (
+                <p key={id} className="data">
+                  {name}
+                </p>
+              ))
+            : `We don't have any ganres for this movie.`}
         </div>
 
         <div className="navlink_div">

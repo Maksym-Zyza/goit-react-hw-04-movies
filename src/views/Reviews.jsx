@@ -3,7 +3,9 @@ import React from 'react';
 import axios from 'axios';
 
 class Reviews extends React.Component {
-  state = {};
+  state = {
+    reviews: [],
+  };
 
   componentDidMount() {
     this.fetchReviews();
@@ -11,8 +13,6 @@ class Reviews extends React.Component {
 
   fetchReviews = () => {
     const { movieId } = this.props.match.params;
-    console.log(movieId);
-
     // api.getMoviesReviews(movieId).then(results => {
     //   this.setState({ ...results });
     // });
@@ -22,7 +22,7 @@ class Reviews extends React.Component {
         `https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=523a15ded98cd05fab36993344058e43`,
       )
       .then(response => {
-        this.setState({ ...response.data.results });
+        this.setState({ reviews: [...response.data.results] });
       })
       .catch(error => {
         console.log(error);
@@ -31,21 +31,20 @@ class Reviews extends React.Component {
   };
 
   render() {
-    const { author } = this.state;
-    console.log(this.state);
-    console.log(author);
+    const { reviews } = this.state;
 
     return (
       <div>
-        <h2> Reviews page </h2>
-        <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Adipisci
-          maiores quia dolorum porro quidem officiis impedit molestias quaerat
-          numquam nobis Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Magnam sequi tenetur laborum ab dolorem accusamus, autem perspiciatis
-          rerum deserunt placeat dolor, impedit id nesciunt dignissimos
-          laudantium, vitae iusto maxime? Nam.
-        </p>
+        <ul>
+          {reviews.length > 0
+            ? reviews.map(({ id, author, content }) => (
+                <li key={id}>
+                  <h3 className="data">{author}</h3>
+                  <p className="text">{content}</p>
+                </li>
+              ))
+            : `We don't have any reviews for this movie.`}
+        </ul>
       </div>
     );
   }
