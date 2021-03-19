@@ -55,7 +55,8 @@ class MovieDetailsPage extends React.Component {
           <h3 className="movie_overview">Overview </h3>
           <span className="text">{overview}</span>
           <p className="text">
-            Popularity: <span className="data">{popularity}</span>
+            Popularity:{' '}
+            <span className="data">{String(Math.round(popularity))}</span>
           </p>
           <p className="text">
             Rating: <span className="data">{vote_average}</span>

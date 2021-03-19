@@ -155,7 +155,8 @@ img {
 }
 
 .rating {
-  display: flex;
+  display: block;
+  width: 38px;
   font-size: 16px;
   font-weight: 500;
   color: #2a2a2a;
