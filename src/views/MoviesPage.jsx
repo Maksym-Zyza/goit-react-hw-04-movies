@@ -17,7 +17,8 @@ class MoviesPage extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.query !== this.state.query) {
+    const { query } = this.state;
+    if (prevState.query !== query && query) {
       this.feachMovies();
     }
   }
