@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, withRouter } from 'react-router-dom';
 import api from '../api/movies-api';
 
 class HomePage extends React.Component {
@@ -20,7 +20,8 @@ class HomePage extends React.Component {
   };
 
   render() {
-    const { trending, src, location } = this.state;
+    const { trending, src } = this.state;
+    const { location } = this.props;
     // console.log('trending >', trending);
 
     return (
@@ -32,7 +33,7 @@ class HomePage extends React.Component {
               key={id}
               to={{
                 pathname: `/movies/${id}`,
-                from: location.pathname,
+                state: { from: location.pathname },
               }}
             >
               <li className="movies_li">
@@ -54,4 +55,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default withRouter(HomePage);

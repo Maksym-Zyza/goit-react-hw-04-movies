@@ -1,8 +1,10 @@
 import React from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Cast from './Cast';
 import Reviews from './Reviews';
 import api from '../api/movies-api';
+import Navigetion from '../components/Navigetion';
+import routes from '../routes';
 
 class MovieDetailsPage extends React.Component {
   state = {
@@ -22,6 +24,14 @@ class MovieDetailsPage extends React.Component {
     });
   };
 
+  hendleGoBack = () => {
+    const { location, history } = this.props;
+    //     if (location.state && location.state.from) {
+    //       return history.push(location.state.from);
+    //  }
+    history.push(location?.state?.from || history.push(routes.home));
+  };
+
   render() {
     const {
       src,
@@ -34,11 +44,14 @@ class MovieDetailsPage extends React.Component {
       vote_count,
       genres,
     } = this.state;
-    const { match } = this.props;
-    // console.log(this.state);
+    const { match, location } = this.props;
+    console.log(location.state);
 
     return (
       <div className="movie_div container">
+        <button className="movie_btn" type="button" onClick={this.hendleGoBack}>
+          &#9668; Back
+        </button>
         <h2 className="movie_title">{original_title}</h2>
         {poster_path && (
           <img
@@ -74,22 +87,7 @@ class MovieDetailsPage extends React.Component {
             : `We don't have any ganres for this movie.`}
         </div>
 
-        <div className="navlink_div">
-          <NavLink
-            to={`${match.url}/cast`}
-            className="NavLink link"
-            activeClassName="NavLink-active"
-          >
-            Cast <span className="link_sign">&#9660;</span>
-          </NavLink>
-          <NavLink
-            to={`${match.url}/reviews`}
-            className="NavLink link"
-            activeClassName="NavLink-active"
-          >
-            Reviews <span className="link_sign">&#9660;</span>
-          </NavLink>
-        </div>
+        <Navigetion.NavMovieDetails match={match} />
 
         <Switch>
           <Route path={`${match.path}/cast`} component={Cast} />

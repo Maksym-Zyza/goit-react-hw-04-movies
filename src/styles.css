@@ -171,6 +171,29 @@ img {
   position: relative;
 }
 
+.movie_btn {
+  position: absolute;
+  top: 25px;
+  left: 5px;
+  padding: 8px 16px;
+  border-radius: 2px;
+  background-color: #01b4e4;
+  text-align: center;
+  font-weight: 700;
+  display: inline-block;
+  color: #fff;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+  outline: #01b4e4;
+  z-index: 10;
+}
+
+.movie_btn:hover,
+.movie_btn:focus {
+  transform: scale(1.04);
+}
+
 .movie_title {
   font-size: 20px;
   text-align: center;

@@ -63,6 +63,7 @@ class MoviesPage extends React.Component {
         <Searchbar onSubmit={this.formSubmitQuery} />
 
         <MoviesGallery movies={movies} />
+        {/* query={query} page={page} */}
 
         {isLoading && <Loader isLoading={isLoading} />}
 

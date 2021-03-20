@@ -2,6 +2,7 @@ import React from 'react';
 // import api from '../api/movies-api';
 import axios from 'axios';
 import defaultImg from '../img/default.jpg';
+import Loader from '../components/Loader';
 
 class Cast extends React.Component {
   state = {
@@ -16,6 +17,7 @@ class Cast extends React.Component {
 
   fetchCredits = () => {
     const { movieId } = this.props.match.params;
+    this.setState({ isLoading: true });
     // console.log(movieId);
 
     // api.getMovieCredits(movieId).then(cast => {
@@ -32,11 +34,12 @@ class Cast extends React.Component {
       .catch(error => {
         console.log(error);
         return [];
-      });
+      })
+      .finally(() => this.setState({ isLoading: false }));
   };
 
   render() {
-    const { cast, src } = this.state;
+    const { cast, src, isLoading } = this.state;
     // console.log(cast);
 
     return (
@@ -64,6 +67,8 @@ class Cast extends React.Component {
             ))}
           </ul>
         </div>
+
+        {isLoading && <Loader isLoading={isLoading} />}
       </>
     );
   }

@@ -24,7 +24,7 @@
 
 .Button:hover,
 .Button:focus {
-  background-color: #303f9f;
+  transform: scale(1.04);
 }
 
 .btnDiv {

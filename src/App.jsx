@@ -1,48 +1,39 @@
-import React from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
-import HomePage from './views/HomePage';
-import MoviesPage from './views/MoviesPage';
-import MovieDetailsPage from './views/MovieDetailsPage';
-// import NotFoundViev from './views/NotFoundViev';
+import React, { Suspense, lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
+// import HomePage from './views/HomePage';
+// import MoviesPage from './views/MoviesPage';
+// import MovieDetailsPage from './views/MovieDetailsPage';
 import './styles.css';
+import AppBar from './components/AppBar';
+import routes from './routes';
+
+// Чанкование - загрузка js частями:
+const HomePage = lazy(() =>
+  import('./views/HomePage' /* webpackChunkName: "home-page" */),
+);
+const MoviesPage = lazy(() =>
+  import('./views/MoviesPage' /* webpackChunkName: "movie-page" */),
+);
+const MovieDetailsPage = lazy(() =>
+  import(
+    './views/MovieDetailsPage' /* webpackChunkName: "movieDetalis-page" */
+  ),
+);
 
 class App extends React.Component {
   render() {
     return (
       <>
-        <div className="NavDiv">
-          <NavLink
-            exact
-            to="/"
-            className="NavLink"
-            activeClassName="NavLink-active"
-          >
-            Home
-          </NavLink>
+        <AppBar />
 
-          <NavLink
-            to="/movies"
-            className="NavLink"
-            activeClassName="NavLink-active"
-          >
-            Movies
-          </NavLink>
-
-          <a href="https://www.themoviedb.org/">
-            <img
-              className="nav_img"
-              src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
-              alt="img themoviedb.org"
-            />
-          </a>
-        </div>
-
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route exact path="/movies" component={MoviesPage} />
-          <Route path="/movies/:movieId" component={MovieDetailsPage} />
-          <Route component={HomePage} />
-        </Switch>
+        <Suspense fallback={<h1>Loading...</h1>}>
+          <Switch>
+            <Route exact path={routes.home} component={HomePage} />
+            <Route exact path={routes.movies} component={MoviesPage} />
+            <Route path={routes.movieDetails} component={MovieDetailsPage} />
+            <Route component={HomePage} />
+          </Switch>
+        </Suspense>
       </>
     );
   }

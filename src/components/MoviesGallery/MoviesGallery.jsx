@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, withRouter } from 'react-router-dom';
 
 class MoviesGallery extends React.Component {
   state = {
@@ -8,8 +8,8 @@ class MoviesGallery extends React.Component {
   };
 
   render() {
-    const { src, location } = this.state;
-    const { movies } = this.props;
+    const { src } = this.state;
+    const { movies, location } = this.props;
 
     return (
       <div className="container">
@@ -19,7 +19,8 @@ class MoviesGallery extends React.Component {
               key={id}
               to={{
                 pathname: `/movies/${id}`,
-                from: location.pathname,
+                state: { from: `${location.pathname}` },
+                // ?query=${query}&page=${page}
               }}
             >
               <li className="movies_li">
@@ -41,4 +42,4 @@ class MoviesGallery extends React.Component {
   }
 }
 
-export default MoviesGallery;
+export default withRouter(MoviesGallery);
