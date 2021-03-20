@@ -1,6 +1,5 @@
 import React from 'react';
-// import api from '../api/movies-api';
-import axios from 'axios';
+import api from '../api/movies-api';
 import defaultImg from '../img/default.jpg';
 import Loader from '../components/Loader';
 
@@ -18,16 +17,9 @@ class Cast extends React.Component {
   fetchCredits = () => {
     const { movieId } = this.props.match.params;
     this.setState({ isLoading: true });
-    // console.log(movieId);
 
-    // api.getMovieCredits(movieId).then(cast => {
-    //   this.setState({ ...cast });
-    // });
-
-    axios
-      .get(
-        `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=523a15ded98cd05fab36993344058e43`,
-      )
+    api
+      .getMovieCredits(movieId)
       .then(response => {
         this.setState({ cast: [...response.data.cast] });
       })
@@ -40,7 +32,6 @@ class Cast extends React.Component {
 
   render() {
     const { cast, src, isLoading } = this.state;
-    // console.log(cast);
 
     return (
       <>

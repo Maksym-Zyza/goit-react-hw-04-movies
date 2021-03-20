@@ -22,7 +22,6 @@ class HomePage extends React.Component {
   render() {
     const { trending, src } = this.state;
     const { location } = this.props;
-    // console.log('trending >', trending);
 
     return (
       <div className="container">

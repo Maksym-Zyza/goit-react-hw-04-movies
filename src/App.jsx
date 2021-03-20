@@ -9,14 +9,14 @@ import routes from './routes';
 
 // Чанкование - загрузка js частями:
 const HomePage = lazy(() =>
-  import('./views/HomePage' /* webpackChunkName: "home-page" */),
+  import('./views/HomePage' /* webpackChunkName: "home-views" */),
 );
 const MoviesPage = lazy(() =>
-  import('./views/MoviesPage' /* webpackChunkName: "movie-page" */),
+  import('./views/MoviesPage' /* webpackChunkName: "movie-views" */),
 );
 const MovieDetailsPage = lazy(() =>
   import(
-    './views/MovieDetailsPage' /* webpackChunkName: "movieDetalis-page" */
+    './views/MovieDetailsPage' /* webpackChunkName: "movieDetalis-views" */
   ),
 );
 

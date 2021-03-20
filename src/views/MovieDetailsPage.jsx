@@ -44,8 +44,7 @@ class MovieDetailsPage extends React.Component {
       vote_count,
       genres,
     } = this.state;
-    const { match, location } = this.props;
-    console.log(location.state);
+    const { match } = this.props;
 
     return (
       <div className="movie_div container">

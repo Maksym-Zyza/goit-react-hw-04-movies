@@ -1,5 +1,5 @@
 import React from 'react';
-import axios from 'axios';
+import api from '../api/movies-api';
 import Searchbar from '../components/Searchbar/Searchbar';
 import Loader from '../components/Loader';
 import Button from '../components/Button/Button';
@@ -28,13 +28,10 @@ class MoviesPage extends React.Component {
 
   feachMovies = () => {
     const { query, page } = this.state;
-    // const options = { q, page };
     this.setState({ isLoading: true });
 
-    axios
-      .get(
-        `https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}&api_key=523a15ded98cd05fab36993344058e43`,
-      )
+    api
+      .getSerchMovies(query, page)
       .then(response => {
         this.setState(prevState => ({
           movies: [...prevState.movies, ...response.data.results],
@@ -56,14 +53,12 @@ class MoviesPage extends React.Component {
     const { movies, isLoading, error } = this.state;
     const renderBtn = movies.length > 0 && !isLoading;
     const nothing = movies.length === 0;
-    // console.log('movies >', movies);
 
     return (
       <div>
         <Searchbar onSubmit={this.formSubmitQuery} />
 
         <MoviesGallery movies={movies} />
-        {/* query={query} page={page} */}
 
         {isLoading && <Loader isLoading={isLoading} />}
 

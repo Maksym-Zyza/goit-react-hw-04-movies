@@ -20,7 +20,6 @@ class MoviesGallery extends React.Component {
               to={{
                 pathname: `/movies/${id}`,
                 state: { from: `${location.pathname}` },
-                // ?query=${query}&page=${page}
               }}
             >
               <li className="movies_li">

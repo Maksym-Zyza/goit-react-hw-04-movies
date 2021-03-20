@@ -26,12 +26,8 @@ const getMoviesTrending = async () => {
 async function getSerchMovies(query, page) {
   try {
     const url = { url: 'search/movie', params: { query, page } };
-    const { data } = await axios(url);
-    if (data.results.lenth === 0) {
-      alert('Nothing, plese try again');
-      return;
-    }
-    return data.results;
+    const response = await axios(url);
+    return response;
   } catch (error) {
     alert(error);
     return [];
@@ -59,8 +55,8 @@ async function getMovieDetails(movie_id) {
 async function getMovieCredits(movie_id) {
   try {
     const url = { url: `movie/${movie_id}/credits` };
-    const { data } = axios(url, movie_id);
-    return data;
+    const response = axios(url, movie_id);
+    return response;
   } catch (error) {
     alert(error);
     return [];
@@ -71,8 +67,8 @@ async function getMovieCredits(movie_id) {
 async function getMoviesReviews(movie_id) {
   try {
     const url = { url: `movie/${movie_id}/reviews` };
-    const { data } = axios(url, movie_id);
-    return data;
+    const response = axios(url, movie_id);
+    return response;
   } catch (error) {
     alert(error);
     return [];
