@@ -6,6 +6,7 @@ import { Route, Switch } from 'react-router-dom';
 import './styles.css';
 import AppBar from './components/AppBar';
 import routes from './routes';
+import Loader from './components/Loader';
 
 // Чанкование - загрузка js частями:
 const HomePage = lazy(() =>
@@ -26,7 +27,7 @@ class App extends React.Component {
       <>
         <AppBar />
 
-        <Suspense fallback={<h1>Loading...</h1>}>
+        <Suspense fallback={<Loader isLoading={true} />}>
           <Switch>
             <Route exact path={routes.home} component={HomePage} />
             <Route exact path={routes.movies} component={MoviesPage} />
