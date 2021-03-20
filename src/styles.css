@@ -53,12 +53,12 @@ img {
   font-weight: 700;
   font-family: sans-serif;
   text-decoration: none;
-  color: #83cca4;
+  color: #47b4e4;
 }
 
 @media screen and (max-width: 900px) {
   .NavLink {
-    margin-right: 10px;
+    margin-right: 5px;
     padding: 8px;
     font-size: 24px;
   }
@@ -69,6 +69,14 @@ img {
   width: 160px;
   top: 10px;
   right: 20px;
+}
+
+@media screen and (max-width: 900px) {
+  .nav_img {
+    width: 140px;
+    top: 12px;
+    right: 20px;
+  }
 }
 
 .link {
