@@ -1,7 +1,7 @@
 html {
   box-sizing: border-box;
   width: 100vw;
-  overflow-x: hidden;
+  // overflow-x: hidden;
 }
 
 *,
@@ -132,7 +132,8 @@ img {
 }
 
 .movies_li:hover {
-  transform: scale(1.02);
+  box-shadow: inset -1px -1px 4px rgb(98, 224, 224),
+    inset 1px 1px 4px rgba(112, 204, 204, 0.53);
 }
 
 .movies_img {
@@ -145,6 +146,7 @@ img {
 .movies_title {
   display: inline-block;
   margin: 12px 10px;
+  height: 30px;
   font-size: 16px;
   font-weight: 500;
   color: #fff;
@@ -294,4 +296,47 @@ img {
   height: 80px;
   justify-content: center;
   align-items: center;
+}
+.toolDots {
+  position: absolute;
+  top: 62px;
+  right: 15px;
+  width: 28px;
+  height: 28px;
+  fill: #01b4e4;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.toolBar {
+  position: absolute;
+  z-index: 11;
+  height: 250px;
+  right: 0;
+  top: 100px;
+  width: 250px;
+  padding: 25px;
+  background: #01b4e4;
+  transition: ease-in-out 0.25s;
+  border-radius: 5px;
+}
+
+.toolBar > h3 {
+  margin: 0;
+  margin-bottom: 12px;
+  color: #fff;
+  text-align: center;
+}
+
+.toolBarWrapper {
+  z-index: 10;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
 }

@@ -11,9 +11,9 @@ axios.defaults.params = {
 };
 
 // список популярных фильмов на сегодня для создания коллекции на главной странице
-const getMoviesTrending = async () => {
+const getMoviesTrending = async (type, time) => {
   try {
-    const url = { url: `trending/movie/day` };
+    const url = { url: `trending/${type}/${time}` };
     const { data } = await axios(url);
     return data.results;
   } catch (error) {
@@ -74,6 +74,44 @@ async function getMoviesReviews(movie_id) {
     return [];
   }
 }
+
+// Какие фильмы идут в кинотеатрах?
+// URL: /discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22
+
+// Какие фильмы самые популярные?
+// URL: /discover/movie?sort_by=popularity.desc
+
+// Какие фильмы имеют самый высокий рейтинг R?
+// URL: /discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc
+
+// Какие детские фильмы самые популярные?
+// URL: /discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc
+
+// Какие лучшие фильмы 2010 года?
+// URL: /discover/movie?primary_release_year=2010&sort_by=vote_average.desc
+
+// Какие лучшие драмы вышли в этом году?
+// URL: /discover/movie?With_genres=18&primary_release_year=2014
+
+// Какие научно-фантастические фильмы, в которых снимался Том Круз, получили самые высокие оценки?
+// URL: /discover/movie?with_genres=878&with_cast=500&sort_by=vote_average.desc
+
+// Какие комедии Уилла Феррелла самые кассовые?
+// URL: /discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc
+
+// Снимались ли Брэд Питт и Эдвард Нортон вместе в кино?
+// URL: /discover/movie?with_people=287,819&sort_by=vote_average.desc
+
+// Дэвид Финчер когда-нибудь работал с Руни Мара?
+// URL: /discover/movie?with_people=108916,7467&sort_by=popularity.desc
+
+// Какие драмы самые лучшие?
+// URL: /discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10
+
+// Какие фильмы Лиама Нисона получили самый высокий рейтинг "R"?
+// URL: /discover/movie?certification_country=US&certification=R&sort_by=revenue.desc&with_cast=3896
+
+// ===========
 
 const api = {
   getMoviesTrending,
