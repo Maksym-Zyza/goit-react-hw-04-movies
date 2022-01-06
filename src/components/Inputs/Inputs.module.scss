@@ -1,0 +1,118 @@
+.inputWrapper {
+  margin: 2% 0;
+  display: flex;
+  flex-flow: column;
+  color: #01b4e4;
+
+  label {
+    margin: 5px;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  input[type='date'],
+  input[type='search'],
+  select {
+    padding: 8px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: #01b4e4;
+    background: white;
+    cursor: pointer;
+    border: 5px solid #01b4e4;
+    border-radius: 6px;
+  }
+
+  input:not([type='checkbox']),
+  select {
+    padding: 8px;
+
+    &:focus-visible,
+    &:focus {
+      outline: none;
+      box-shadow: inset -1px -1px 4px rgb(98, 224, 224),
+        inset 1px 1px 4px rgba(112, 204, 204, 0.53);
+    }
+  }
+
+  input[type='text'] {
+    width: 318px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #01b4e4;
+  }
+
+  input[type='search'] {
+    width: 352px;
+    background-image: url('../Icons/Search.svg');
+    background-size: 5%;
+    font-size: 16px;
+    color: #01b4e4;
+  }
+  input[type='search']:not(:placeholder-shown) {
+    background-image: none;
+  }
+
+  input[type='checkbox'] {
+    appearance: none;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    vertical-align: top;
+    cursor: pointer;
+  }
+
+  input[type='checkbox'].checkBoxChecked {
+    appearance: none;
+    background: #7e5f9e !important;
+    cursor: pointer;
+
+    &:after {
+      position: absolute;
+      left: 14%;
+      line-height: 24px;
+      font-size: 24px;
+      content: url('../Icons/Mark.svg');
+      color: #979797;
+    }
+  }
+
+  input[type='number'] {
+    width: 141px;
+    background: url('../Icons/ArrowUp.svg') no-repeat 90% 46%,
+      url('../Icons/ArrowDown.svg') no-repeat 90% 58% #eee9f2;
+    background-size: 12%;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      opacity: 0;
+      right: 10%;
+      bottom: 10%;
+      cursor: pointer;
+    }
+
+    &:active {
+      background-size: 13%;
+    }
+  }
+
+  input[type='date'] {
+    width: 225px;
+    background-image: url('../Icons/Calendar.svg');
+    background-size: 7%;
+
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0;
+      position: relative;
+      left: 1%;
+      cursor: pointer;
+    }
+  }
+}
+
+td .inputWrapper {
+  justify-content: center;
+}

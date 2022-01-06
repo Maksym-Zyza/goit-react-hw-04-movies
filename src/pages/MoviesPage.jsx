@@ -5,6 +5,7 @@ import Loader from '../components/Loader';
 import Button from '../components/Button/Button';
 import scrollTo from '../components/scrollTo';
 import MoviesGallery from '../components/MoviesGallery';
+import ScrollButton from '../components/ScrollButton/ScrollButton';
 import Nothing from '../components/Nothing';
 
 class MoviesPage extends React.Component {
@@ -52,7 +53,7 @@ class MoviesPage extends React.Component {
 
   render() {
     const { movies, isLoading, error } = this.state;
-    const renderBtn = movies.length > 0 && !isLoading;
+    const movieList = movies.length > 0 && !isLoading;
     const nothing = movies.length === 0;
 
     return (
@@ -63,7 +64,9 @@ class MoviesPage extends React.Component {
 
         {isLoading && <Loader isLoading={isLoading} />}
 
-        {renderBtn && <Button onClick={this.feachMovies} scroll={scrollTo()} />}
+        {movieList && <Button onClick={this.feachMovies} scroll={scrollTo()} />}
+
+        {movieList && <ScrollButton scrollStepInPx="50" delayInMs="16" />}
 
         {error && <h1>{error}</h1>}
 

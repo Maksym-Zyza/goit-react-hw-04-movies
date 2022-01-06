@@ -3,21 +3,21 @@ import { Route, Switch } from 'react-router-dom';
 // import HomePage from './views/HomePage';
 // import MoviesPage from './views/MoviesPage';
 // import MovieDetailsPage from './views/MovieDetailsPage';
-import './styles.css';
+import './styles.scss';
 import AppBar from './components/AppBar';
 import routes from './routes';
 import Loader from './components/Loader';
 
 // Чанкование - загрузка js частями:
 const HomePage = lazy(() =>
-  import('./views/HomePage' /* webpackChunkName: "home-views" */),
+  import('./pages/HomePage' /* webpackChunkName: "home-views" */),
 );
 const MoviesPage = lazy(() =>
-  import('./views/MoviesPage' /* webpackChunkName: "movie-views" */),
+  import('./pages/MoviesPage' /* webpackChunkName: "movie-views" */),
 );
 const MovieDetailsPage = lazy(() =>
   import(
-    './views/MovieDetailsPage' /* webpackChunkName: "movieDetalis-views" */
+    './pages/MovieDetailsPage' /* webpackChunkName: "movieDetalis-views" */
   ),
 );
 

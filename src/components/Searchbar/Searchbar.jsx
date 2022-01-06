@@ -1,5 +1,6 @@
 import React from 'react';
-import st from './Searchbar.module.css';
+import { ReactComponent as SearchLogo } from '../Icons/Search.svg';
+import st from './Searchbar.module.scss';
 
 class Searchbar extends React.Component {
   state = {
@@ -12,10 +13,8 @@ class Searchbar extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-
-    // передача пропа в MoviesPage
+    // prop to MoviesPage
     this.props.onSubmit(this.state.search);
-
     this.setState({ search: '' });
   };
 
@@ -26,7 +25,7 @@ class Searchbar extends React.Component {
       <header className={st.Searchbar}>
         <form onSubmit={this.handleSubmit} className={st.SearchForm}>
           <button type="submit" className={st.SearchForm_button}>
-            <span className={st.SearchForm_button_label}>Search</span>
+            <SearchLogo className={st.searchLogo} />
           </button>
 
           <input
