@@ -8,12 +8,13 @@ axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {
   api_key: API_KEY,
   language: 'en-US',
+  page: 1,
 };
 
 // список популярных фильмов на сегодня для создания коллекции на главной странице
-const getMoviesTrending = async (type, time) => {
+const getMoviesTrending = async (type, time, page) => {
   try {
-    const url = { url: `trending/${type}/${time}` };
+    const url = { url: `trending/${type}/${time}`, params: { page } };
     const { data } = await axios(url);
     return data.results;
   } catch (error) {

@@ -107,6 +107,7 @@ img {
 /* Home - Movies gallery  */
 
 .page_title {
+  padding: 0 20px;
   text-align: center;
   color: #01b4e4;
 }
@@ -293,9 +294,9 @@ img {
 /* loaderDiv */
 .loaderDiv {
   display: flex;
+  padding-top: 15px;
   height: 80px;
   justify-content: center;
-  align-items: center;
 }
 .toolDots {
   position: absolute;

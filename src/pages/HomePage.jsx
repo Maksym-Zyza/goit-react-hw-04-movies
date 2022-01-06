@@ -1,7 +1,10 @@
 import React from 'react';
 import { Link, useLocation, withRouter } from 'react-router-dom';
 import { ReactComponent as ToolDots } from '../components/Icons/DotsMenu.svg';
+import ScrollButton from '../components/ScrollButton/ScrollButton';
 import { Select } from '../components/Inputs/Select';
+import Button from '../components/Button/Button';
+import Loader from '../components/Loader';
 import api from '../api/movies-api';
 
 class HomePage extends React.Component {
@@ -9,9 +12,11 @@ class HomePage extends React.Component {
     trending: [],
     src: 'https://image.tmdb.org/t/p/w500',
     location: useLocation,
+    isLoading: false,
     showing: false,
     type: 'movie',
     time: 'day',
+    page: 1,
   };
 
   componentDidMount() {
@@ -26,24 +31,40 @@ class HomePage extends React.Component {
         : (document.body.style.overflow = 'auto');
     }
     if (prevState.time !== time && time) {
+      this.setState({ trending: [] });
       this.fetchTrending();
     }
     if (prevState.type !== type && type) {
+      this.setState({ trending: [] });
       this.fetchTrending();
     }
   }
 
   fetchTrending = () => {
-    const { type, time } = this.state;
-    api.getMoviesTrending(type, time).then(results => {
-      this.setState({ trending: [...results] });
-    });
+    const { type, time, page } = this.state;
+    this.setState({ isLoading: true });
+
+    api
+      .getMoviesTrending(type, time, page)
+      .then(results => {
+        this.setState(prevState => ({
+          trending: [...prevState.trending, ...results],
+          page: prevState.page + 1,
+        }));
+        console.log('page>>', page);
+      })
+      .catch(error => {
+        console.log(error);
+        return [];
+      })
+      .finally(() => this.setState({ isLoading: false }));
   };
 
   handleChange(e) {
     let { name, value } = e.target;
     this.setState({
       [name]: value,
+      page: 1,
     });
   }
 
@@ -56,9 +77,10 @@ class HomePage extends React.Component {
 
   render() {
     const { location } = this.props;
-    const { trending, src, time, type, showing } = this.state;
+    const { trending, src, time, type, showing, isLoading } = this.state;
     const title =
       time === 'day' ? 'Today trending movies' : 'Trending movies of the week';
+    const movieList = trending.length > 0 && !isLoading;
 
     return (
       <div className="container">
@@ -123,6 +145,12 @@ class HomePage extends React.Component {
             </Link>
           ))}
         </ul>
+
+        {movieList && <ScrollButton scrollStepInPx="50" delayInMs="16" />}
+
+        {movieList && <Button onClick={this.fetchTrending} />}
+
+        {isLoading && <Loader isLoading={isLoading} />}
       </div>
     );
   }
