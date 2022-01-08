@@ -1,10 +1,9 @@
 import React from 'react';
 import api from '../api/movies-api';
 import Searchbar from '../components/Searchbar/Searchbar';
-import Loader from '../components/Loader';
+import Loader from '../components/Loader/Loader';
 import Button from '../components/Button/Button';
-import scrollTo from '../components/scrollTo';
-import MoviesGallery from '../components/MoviesGallery';
+import MoviesGallery from '../components/MoviesGallery/MoviesGallery';
 import ScrollButton from '../components/ScrollButton/ScrollButton';
 import Nothing from '../components/Nothing';
 
@@ -64,7 +63,7 @@ class MoviesPage extends React.Component {
 
         {isLoading && <Loader isLoading={isLoading} />}
 
-        {movieList && <Button onClick={this.feachMovies} scroll={scrollTo()} />}
+        {movieList && <Button onClick={this.feachMovies} />}
 
         {movieList && <ScrollButton scrollStepInPx="50" delayInMs="16" />}
 

@@ -1,11 +1,10 @@
 import React from 'react';
 import api from '../api/movies-api';
-import defaultImg from '../img/default.jpg';
-import Loader from '../components/Loader';
+import CastInfo from '../components/CastInfo/CastInfo';
+import Loader from '../components/Loader/Loader';
 
 class Cast extends React.Component {
   state = {
-    src: 'https://image.tmdb.org/t/p/w500',
     isLoading: false,
     cast: [],
   };
@@ -31,33 +30,10 @@ class Cast extends React.Component {
   };
 
   render() {
-    const { cast, src, isLoading } = this.state;
-
+    const { cast, isLoading } = this.state;
     return (
       <>
-        <div className="container">
-          <ul className="cast_ul">
-            {cast.map(({ cast_id, profile_path, name, character }) => (
-              <li key={cast_id} className="cast_li">
-                {profile_path ? (
-                  <img
-                    src={`${src}${profile_path}`}
-                    alt="Movie poster"
-                    className="cast_img"
-                  />
-                ) : (
-                  <img
-                    src={defaultImg}
-                    alt="Was not found"
-                    className="cast_img"
-                  />
-                )}
-                <h3 className="cast_title">{name}</h3>
-                <p className="cast_text">{character}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <CastInfo cast={cast} />
 
         {isLoading && <Loader isLoading={isLoading} />}
       </>

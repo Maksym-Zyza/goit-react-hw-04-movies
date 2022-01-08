@@ -1,12 +1,9 @@
 import React, { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
-// import HomePage from './views/HomePage';
-// import MoviesPage from './views/MoviesPage';
-// import MovieDetailsPage from './views/MovieDetailsPage';
 import './styles.scss';
 import AppBar from './components/AppBar';
 import routes from './routes';
-import Loader from './components/Loader';
+import Loader from './components/Loader/Loader';
 
 // Чанкование - загрузка js частями:
 const HomePage = lazy(() =>

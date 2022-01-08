@@ -13,7 +13,7 @@ class MoviesGallery extends React.Component {
 
     return (
       <div className="container">
-        <ul className="movies_ul">
+        <ul className="moviesList">
           {movies.map(({ id, poster_path, title, vote_average }) => (
             <Link
               key={id}
@@ -22,16 +22,12 @@ class MoviesGallery extends React.Component {
                 state: { from: `${location.pathname}` },
               }}
             >
-              <li className="movies_li">
-                <img
-                  className="movies_img"
-                  src={`${src}${poster_path}`}
-                  alt={title}
-                />
-                <p className="movies_title"> {title}</p>
-                <p className="movies_rating">
-                  <span className="rating">{vote_average}</span>
-                </p>
+              <li>
+                <img src={`${src}${poster_path}`} alt={title} />
+                <h4> {title}</h4>
+                <div>
+                  <span>{vote_average}</span>
+                </div>
               </li>
             </Link>
           ))}
