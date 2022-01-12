@@ -1,5 +1,6 @@
 import React from 'react';
 import style from './ScrollButton.module.scss';
+import { ReactComponent as UpArrow } from '../Icons/UpArrow.svg';
 
 class ScrollButton extends React.Component {
   constructor() {
@@ -34,7 +35,7 @@ class ScrollButton extends React.Component {
           this.scrollToTop();
         }}
       >
-        <span className={style.arrowUp}>&#8593;</span>
+        <UpArrow className={style.arrowUp} />
       </button>
     );
   }
