@@ -1,7 +1,12 @@
-.NavDiv {
+.nav {
   position: relative;
+  height: 42px;
+  z-index: 11;
+  padding-left: 60px;
   background-color: #90caf9;
   align-items: center;
+  box-shadow: -2px -2px 4px rgba(255, 255, 255, 0.25),
+    2px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
 .navlink_div {
@@ -10,30 +15,13 @@
 
 .NavLink {
   display: inline-block;
-  padding: 7px 50px;
-  font-size: 26px;
+  padding: 8px;
+  font-size: 23px;
   color: #2a2a2a;
   font-weight: 700;
   font-family: sans-serif;
   text-decoration: none;
   color: #47b4e4;
-  @media screen and (max-width: 900px) {
-    margin-right: 5px;
-    padding: 8px;
-    font-size: 24px;
-  }
-}
-
-.navImg {
-  position: absolute;
-  width: 160px;
-  top: 10px;
-  right: 20px;
-  @media screen and (max-width: 900px) {
-    width: 140px;
-    top: 12px;
-    right: 20px;
-  }
 }
 
 .link {

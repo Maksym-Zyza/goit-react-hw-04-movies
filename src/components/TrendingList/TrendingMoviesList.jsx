@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation, withRouter } from 'react-router-dom';
 
-const TrendingList = ({ trending, time }) => {
+const TrendingMoviesList = ({ trending, time }) => {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
   const location = useLocation();
   const title =
@@ -34,4 +34,4 @@ const TrendingList = ({ trending, time }) => {
   );
 };
 
-export default withRouter(TrendingList);
+export default withRouter(TrendingMoviesList);

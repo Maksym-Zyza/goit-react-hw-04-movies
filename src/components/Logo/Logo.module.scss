@@ -1,0 +1,12 @@
+.logo {
+  position: absolute;
+  width: 160px;
+  top: 10px;
+  right: 20px;
+  z-index: 12;
+  @media screen and (max-width: 900px) {
+    width: 140px;
+    top: 12px;
+    right: 20px;
+  }
+}

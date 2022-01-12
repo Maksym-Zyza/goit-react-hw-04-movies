@@ -1,16 +1,16 @@
 import React from 'react';
 import ScrollButton from '../components/ScrollButton/ScrollButton';
-import TrendingMoviesList from '../components/TrendingList/TrendingMoviesList';
+import TrendingPersonsList from '../components/TrendingList/TrendingPersonsList';
 import ToolsMenu from '../components/ToolsMenu/ToolsMenu';
 import Button from '../components/Button/Button';
 import Loader from '../components/Loader/Loader';
 import api from '../api/movies-api';
 
-class HomePage extends React.Component {
+class PersonsPage extends React.Component {
   state = {
     trending: [],
     isLoading: false,
-    type: 'movie',
+    type: 'person',
     time: 'day',
     page: 1,
   };
@@ -65,7 +65,7 @@ class HomePage extends React.Component {
 
     return (
       <div className="container">
-        <TrendingMoviesList trending={trending} time={time} />
+        <TrendingPersonsList trending={trending} time={time} />
 
         <ToolsMenu
           time={time}
@@ -83,4 +83,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default PersonsPage;

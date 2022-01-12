@@ -1,26 +1,15 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import st from './Navigetion.module.scss';
-import routes from '../../routes';
+import { Routes } from '../../routes';
 
-const NavHome = () => {
+const NavPage = () => {
+  const location = useLocation();
+  const route = Routes.find(
+    el => el.path.split('/')[1] === location.pathname.split('/')[1],
+  );
   return (
-    <nav className={st.NavDiv}>
-      <NavLink
-        exact
-        to={routes.home}
-        className={st.NavLink}
-        activeClassName={st.NavLinkActive}
-      >
-        Home
-      </NavLink>
-
-      <NavLink
-        to={routes.movies}
-        className={st.NavLink}
-        activeClassName={st.NavLinkActive}
-      >
-        Movies
-      </NavLink>
+    <nav className={st.nav}>
+      <div className={st.NavLink}>{route.name}</div>
     </nav>
   );
 };
@@ -46,9 +35,28 @@ const NavMovieDetails = ({ match }) => {
   );
 };
 
+// const Nav = () => {
+//   return (
+//     <nav className={st.nav}>
+//       {Routes.map(route => (
+//         <NavLink
+//           key={route.name}
+//           exact={route.exact}
+//           to={route.path}
+//           className={st.NavLink}
+//           activeClassName={st.NavLinkActive}
+//         >
+//           {route.name}
+//         </NavLink>
+//       ))}
+//     </nav>
+//   );
+// };
+
 const Navigation = {
-  NavHome,
+  NavPage,
   NavMovieDetails,
+  // Nav,
 };
 
 export default Navigation;

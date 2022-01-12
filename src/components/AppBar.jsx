@@ -1,16 +1,13 @@
+import { SideBar } from '../components/SideBar/SideBar';
 import Navigetion from './Navigetion/Navigetion';
+import Logo from '../components/Logo/Logo';
 
 const AppBar = () => {
   return (
-    <header className="AppBar">
-      <Navigetion.NavHome />
-
-      <a className="navImg" href="https://www.themoviedb.org/">
-        <img
-          src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg"
-          alt="img themoviedb.org"
-        />
-      </a>
+    <header>
+      <SideBar />
+      <Navigetion.NavPage />
+      <Logo />
     </header>
   );
 };

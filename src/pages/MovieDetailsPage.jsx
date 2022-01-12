@@ -5,10 +5,9 @@ import {
   useLocation,
   useHistory,
 } from 'react-router-dom';
-import MovieDetails from '../components/MovieDetails/MovieDetails';
+import MovieDetails from '../components/ItemDetails/MovieDetails';
 import Navigetion from '../components/Navigetion/Navigetion';
 import Reviews from './Reviews';
-import routes from '../routes';
 import Cast from './Cast';
 
 export default function MovieDetailsPage() {
@@ -17,7 +16,7 @@ export default function MovieDetailsPage() {
   const history = useHistory();
 
   const hendleGoBack = () => {
-    history.push(location?.state?.from || history.push(routes.home));
+    history.push(location?.state?.from || history.push('/'));
   };
 
   return (

@@ -7,7 +7,7 @@ const API_KEY = '523a15ded98cd05fab36993344058e43';
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {
   api_key: API_KEY,
-  language: 'en-US',
+  language: 'en-US', // uk-UA
   page: 1,
 };
 
@@ -45,6 +45,18 @@ async function getMovieDetails(movie_id) {
   try {
     const url = { url: `movie/${movie_id}` };
     const { data } = await axios(url, movie_id);
+    return data;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+}
+
+// запрос полной информации о фильме для страницы кинофильма
+async function getPersonDetails(person_id) {
+  try {
+    const url = { url: `person/${person_id}` };
+    const { data } = await axios(url, person_id);
     return data;
   } catch (error) {
     alert(error);
@@ -118,6 +130,7 @@ const api = {
   getMoviesTrending,
   getSerchMovies,
   getMovieDetails,
+  getPersonDetails,
   getMovieCredits,
   getMoviesReviews,
 };
