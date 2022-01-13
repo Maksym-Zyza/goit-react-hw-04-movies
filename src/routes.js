@@ -4,22 +4,22 @@ import Loader from './components/Loader/Loader';
 
 // Чанкование - загрузка js частями:
 const HomePage = lazy(() =>
-  import('./pages/HomePage' /* webpackChunkName: "home-views" */),
+  import('./pages/HomePage' /* webpackChunkName: "Home-page" */),
 );
 const MoviesPage = lazy(() =>
-  import('./pages/MoviesPage' /* webpackChunkName: "movie-views" */),
+  import('./pages/MoviesPage' /* webpackChunkName: "Movie-page" */),
 );
 const PersonsPage = lazy(() =>
-  import('./pages/PersonsPage' /* webpackChunkName: "movie-views" */),
+  import('./pages/PersonsPage' /* webpackChunkName: "Pages-page" */),
 );
 const MovieDetailsPage = lazy(() =>
   import(
-    './pages/MovieDetailsPage' /* webpackChunkName: "movieDetalis-views" */
+    './pages/MovieDetailsPage' /* webpackChunkName: "MovieDetalis-page" */
   ),
 );
 const PersonDetailsPage = lazy(() =>
   import(
-    './pages/PersonDetailsPage' /* webpackChunkName: "movieDetalis-views" */
+    './pages/PersonDetailsPage' /* webpackChunkName: "PersonDetailsPage-page" */
   ),
 );
 

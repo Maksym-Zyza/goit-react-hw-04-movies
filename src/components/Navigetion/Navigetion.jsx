@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import st from './Navigetion.module.scss';
 import { Routes } from '../../routes';
 
@@ -11,27 +11,6 @@ const NavPage = () => {
     <nav className={st.nav}>
       <div className={st.NavLink}>{route.name}</div>
     </nav>
-  );
-};
-
-const NavMovieDetails = ({ match }) => {
-  return (
-    <div className={st.navlink_div}>
-      <NavLink
-        to={`${match.url}/cast`}
-        className={`${st.NavLink} ${st.link}`}
-        activeClassName={st.NavLinkActive}
-      >
-        Cast <span className={st.link_sign}>&#9660;</span>
-      </NavLink>
-      <NavLink
-        to={`${match.url}/reviews`}
-        className={`${st.NavLink} ${st.link}`}
-        activeClassName={st.NavLinkActive}
-      >
-        Reviews <span className={st.link_sign}>&#9660;</span>
-      </NavLink>
-    </div>
   );
 };
 
@@ -53,10 +32,31 @@ const NavMovieDetails = ({ match }) => {
 //   );
 // };
 
+// const NavMovieDetails = ({ match }) => {
+//   return (
+//     <div className={st.navlink_div}>
+//       <NavLink
+//         to={`${match.url}/cast`}
+//         className={`${st.NavLink} ${st.link}`}
+//         activeClassName={st.NavLinkActive}
+//       >
+//         Cast <span className={st.link_sign}>&#9660;</span>
+//       </NavLink>
+//       <NavLink
+//         to={`${match.url}/reviews`}
+//         className={`${st.NavLink} ${st.link}`}
+//         activeClassName={st.NavLinkActive}
+//       >
+//         Reviews <span className={st.link_sign}>&#9660;</span>
+//       </NavLink>
+//     </div>
+//   );
+// };
+
 const Navigation = {
   NavPage,
-  NavMovieDetails,
   // Nav,
+  // NavMovieDetails,
 };
 
 export default Navigation;
