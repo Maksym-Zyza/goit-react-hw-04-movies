@@ -11,6 +11,9 @@ export const SideBar = () => {
   const [sideBarOpened, setSideBarOpened] = useState(false);
 
   const toogleSideBar = () => {
+    !sideBarOpened
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'auto');
     setSideBarOpened(!sideBarOpened);
   };
 

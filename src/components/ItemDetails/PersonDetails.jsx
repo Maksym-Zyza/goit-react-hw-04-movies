@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import st from './Details.module.scss';
 import api from '../../api/movies-api';
+import defaultImg from '../../img/default.jpg';
 
 export default function PersonDetails() {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
@@ -16,8 +17,10 @@ export default function PersonDetails() {
   return (
     <div className={st.details}>
       <h2>{person.name}</h2>
-      {person?.profile_path && (
-        <img src={`${src}${person.profile_path}`} alt={person.name} />
+      {person?.profile_path ? (
+        <img src={`${src}${person?.profile_path}`} alt="Person poster" />
+      ) : (
+        <img src={defaultImg} alt="Was not found" />
       )}
 
       <div>

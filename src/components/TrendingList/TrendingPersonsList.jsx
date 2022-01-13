@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation, withRouter } from 'react-router-dom';
+import defaultImg from '../../img/default.jpg';
 
 const TrendingPersonsList = ({ trending, time }) => {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
@@ -22,7 +23,11 @@ const TrendingPersonsList = ({ trending, time }) => {
             }}
           >
             <li>
-              <img src={`${src}${profile_path}`} alt={title} />
+              {profile_path ? (
+                <img src={`${src}${profile_path}`} alt="Movie poster" />
+              ) : (
+                <img src={defaultImg} alt="Was not found" />
+              )}
               <h4> {name}</h4>
               <div>
                 <span>{Math.round(popularity)}</span>

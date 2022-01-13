@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, withRouter } from 'react-router-dom';
-import api from '../api/movies-api';
-import defaultImg from '../img/default.jpg';
-import Loader from '../components/Loader/Loader';
+import ScrollButton from '../../components/ScrollButton/ScrollButton';
+import Loader from '../../components/Loader/Loader';
+import defaultImg from '../../img/default.jpg';
+import api from '../../api/movies-api';
 
-const Cast = () => {
+const MovieCast = () => {
   const [cast, setCast] = useState([]);
   const [src] = useState('https://image.tmdb.org/t/p/w500');
   const [isLoading, setIsLoading] = useState(false);
@@ -12,7 +13,6 @@ const Cast = () => {
 
   useEffect(() => {
     const movieId = window.location.pathname.split('/')[2];
-
     setIsLoading(true);
 
     api
@@ -54,48 +54,10 @@ const Cast = () => {
       </div>
 
       {isLoading && <Loader isLoading={isLoading} />}
+
+      {cast && <ScrollButton scrollStepInPx="50" delayInMs="16" />}
     </>
   );
 };
 
-export default withRouter(Cast);
-
-// class Cast extends React.Component {
-//   state = {
-//     isLoading: false,
-//     cast: [],
-//   };
-
-//   componentDidMount() {
-//     this.fetchCredits();
-//   }
-
-//   fetchCredits = () => {
-//     const { movieId } = this.props.match.params;
-//     this.setState({ isLoading: true });
-
-//     api
-//       .getMovieCredits(movieId)
-//       .then(response => {
-//         this.setState({ cast: [...response.data.cast] });
-//       })
-//       .catch(error => {
-//         console.log(error);
-//         return [];
-//       })
-//       .finally(() => this.setState({ isLoading: false }));
-//   };
-
-//   render() {
-//     const { cast, isLoading } = this.state;
-//     return (
-//       <>
-//         <CastInfo cast={cast} />
-
-//         {isLoading && <Loader isLoading={isLoading} />}
-//       </>
-//     );
-//   }
-// }
-
-// export default Cast;
+export default withRouter(MovieCast);
