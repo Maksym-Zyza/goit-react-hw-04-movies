@@ -9,11 +9,17 @@ import MovieReviews from '../../components/MovieReviews/MovieReviews';
 export default function MovieDetails() {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
   const [movies, setMovies] = useState(null);
-  const [showCast, setShowCast] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [showCast, setShowCast] = useState(false);
+  const [showReviews, setShowReviews] = useState(false);
 
-  const toogleShowCast = () => {
-    setShowCast(!showCast);
+  const handleShowCast = () => {
+    setShowCast(true);
+    setShowReviews(false);
+  };
+  const handleShowReviews = () => {
+    setShowReviews(true);
+    setShowCast(false);
   };
 
   useEffect(() => {
@@ -68,22 +74,16 @@ export default function MovieDetails() {
         <Loader isLoading={isLoading} />
       )}
 
-      <button className={st.link} onClick={toogleShowCast}>
-        Cast{' '}
-        <span className={st.linkSign}>
-          {showCast ? <span>&#9660;</span> : <span>&#9650;</span>}
-        </span>
+      <button className={st.link} onClick={handleShowCast}>
+        Cast <span className={st.linkSign}>&#9660;</span>
       </button>
-      <button className={st.link} onClick={toogleShowCast}>
-        Reviews{' '}
-        <span className={st.linkSign}>
-          {!showCast ? <span>&#9660;</span> : <span>&#9650;</span>}
-        </span>
+      <button className={st.link} onClick={handleShowReviews}>
+        Reviews <span className={st.linkSign}>&#9660;</span>
       </button>
 
       {showCast && <MovieCast />}
 
-      {!showCast && <MovieReviews />}
+      {showReviews && <MovieReviews />}
     </>
   );
 }
