@@ -6,7 +6,9 @@ const TrendingTvShows = ({ trending, time }) => {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
   const location = useLocation();
   const title =
-    time === 'day' ? 'Today trending persons' : 'Trending persons of the week';
+    time === 'day'
+      ? 'Today trending TV shows'
+      : 'Trending TV shows of the week';
 
   return (
     <div>
