@@ -4,22 +4,28 @@ import Loader from './components/Loader/Loader';
 
 // Чанкование - загрузка js частями:
 const HomePage = lazy(() =>
-  import('./pages/HomePage' /* webpackChunkName: "Home-page" */),
+  import('./pages/HomePage' /* webpackChunkName: "HomePage" */),
 );
 const MoviesPage = lazy(() =>
-  import('./pages/MoviesPage' /* webpackChunkName: "Movie-page" */),
+  import('./pages/MoviesPage' /* webpackChunkName: "MoviesPage" */),
 );
 const PersonsPage = lazy(() =>
-  import('./pages/PersonsPage' /* webpackChunkName: "Pages-page" */),
+  import('./pages/PersonsPage' /* webpackChunkName: "PersonsPage" */),
+);
+const TvShowsPage = lazy(() =>
+  import('./pages/TvShowsPage' /* webpackChunkName: "TvShowsPage" */),
 );
 const MovieDetailsPage = lazy(() =>
-  import(
-    './pages/MovieDetailsPage' /* webpackChunkName: "MovieDetalis-page" */
-  ),
+  import('./pages/MovieDetailsPage' /* webpackChunkName: "MovieDetailsPage" */),
 );
 const PersonDetailsPage = lazy(() =>
   import(
-    './pages/PersonDetailsPage' /* webpackChunkName: "PersonDetailsPage-page" */
+    './pages/PersonDetailsPage' /* webpackChunkName: "PersonDetailsPage" */
+  ),
+);
+const TvShowsDetailsPage = lazy(() =>
+  import(
+    './pages/TvShowsDetailsPage' /* webpackChunkName: "TvShowsDetailsPage" */
   ),
 );
 
@@ -46,6 +52,13 @@ export const Routes = [
     disabled: false,
   },
   {
+    name: 'TV shows',
+    path: '/tvShows',
+    exact: true,
+    component: TvShowsPage,
+    disabled: false,
+  },
+  {
     name: 'MovieDetails',
     path: '/movies/:movieId',
     exact: false,
@@ -57,6 +70,13 @@ export const Routes = [
     path: '/persons/:personId',
     exact: false,
     component: PersonDetailsPage,
+    disabled: true,
+  },
+  {
+    name: 'TvShowsDetails',
+    path: '/tvShows/:tvShowsId',
+    exact: false,
+    component: TvShowsDetailsPage,
     disabled: true,
   },
 ];

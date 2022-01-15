@@ -12,26 +12,6 @@
   }
 }
 
-.toolBar {
-  position: absolute;
-  z-index: 11;
-  height: 255px;
-  right: 0;
-  top: 100px;
-  width: 250px;
-  padding: 30px;
-  background: #01b4e4;
-  transition: ease-in-out 0.25s;
-  border-radius: 5px;
-
-  h3 {
-    margin: 0;
-    margin-bottom: 12px;
-    color: #fff;
-    text-align: center;
-  }
-}
-
 .toolBarWrapper {
   z-index: 10;
   position: fixed;
@@ -40,4 +20,45 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.toolBar {
+  position: absolute;
+  z-index: 11;
+  right: 0;
+  top: 100px;
+  width: 250px;
+  background: #90caf9;
+  transition: ease-in-out 0.25s;
+  border-radius: 5px;
+  @media screen and (max-width: 700px) {
+    width: 200px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    padding: 20px 9px;
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+      background: #01b4e4;
+    }
+    &:hover svg {
+      color: #90caf9;
+    }
+
+    svg {
+      margin-right: 8px;
+      color: #fff;
+    }
+  }
+}
+
+.active {
+  background: #01b4e4;
 }
