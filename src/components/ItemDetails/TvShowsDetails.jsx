@@ -3,24 +3,11 @@ import st from './Details.module.scss';
 import api from '../../api/movies-api';
 import defaultImg from '../../img/default.jpg';
 import Loader from '../Loader/Loader';
-import MovieCast from '../MovieCast/MovieCast';
-import MovieReviews from '../MovieReviews/MovieReviews';
 
 export default function TvShowsDetails() {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
   const [movies, setMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [showCast, setShowCast] = useState(false);
-  const [showReviews, setShowReviews] = useState(false);
-
-  const handleShowCast = () => {
-    setShowCast(true);
-    setShowReviews(false);
-  };
-  const handleShowReviews = () => {
-    setShowReviews(true);
-    setShowCast(false);
-  };
 
   useEffect(() => {
     const id = window.location.pathname.split('/').pop();
