@@ -1,16 +1,16 @@
 import React from 'react';
 import ScrollButton from '../components/ScrollButton/ScrollButton';
-import TrendingList from '../components/TrendingList/TrendingMoviesList';
+import TrendingTvShowsList from '../components/TrendingList/TrendingTvShowsList';
 import ToolsMenu from '../components/ToolsMenu/ToolsMenu';
 import Button from '../components/Button/Button';
 import Loader from '../components/Loader/Loader';
 import api from '../api/movies-api';
 
-class HomePage extends React.Component {
+class TvShowsPage extends React.Component {
   state = {
     trending: [],
     isLoading: false,
-    type: 'movie',
+    type: 'tv',
     time: 'day',
     page: 1,
   };
@@ -53,7 +53,6 @@ class HomePage extends React.Component {
 
   changeSelect(e) {
     this.setState({ time: e.target.dataset.value, page: 1 });
-    console.log('time>>', this.state.time);
   }
 
   render() {
@@ -62,7 +61,7 @@ class HomePage extends React.Component {
 
     return (
       <div className="container">
-        <TrendingList trending={trending} time={time} />
+        <TrendingTvShowsList trending={trending} time={time} />
 
         <ToolsMenu changeSelect={this.changeSelect.bind(this)} />
 
@@ -76,4 +75,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default TvShowsPage;

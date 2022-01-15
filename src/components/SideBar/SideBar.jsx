@@ -5,7 +5,7 @@ import { ReactComponent as Options } from '../Icons/Options.svg';
 import { ReactComponent as ArrowRight } from '../Icons/ArrowRight.svg';
 import { Routes } from '../../routes';
 
-const pagesHidden = ['MovieDetails', 'PersonDetails'];
+const pagesHidden = ['MovieDetails', 'PersonDetails', 'TvShowsDetails'];
 
 export const SideBar = () => {
   const [sideBarOpened, setSideBarOpened] = useState(false);
@@ -28,11 +28,11 @@ export const SideBar = () => {
           sideBarOpened ? `${st.sidebar} ${st.toggledSidebar}` : `${st.sidebar}`
         }
       >
-        <div className={st.sidebarContent}>
+        <ul className={st.sidebarContent}>
           {Routes.filter(route =>
             pagesHidden.includes(route.name) ? null : route,
           ).map(route => (
-            <div key={route.name} className={route.disabled ? st.disabled : ''}>
+            <li key={route.name} className={route.disabled ? st.disabled : ''}>
               <NavLink
                 to={route.path}
                 exact={route.exact}
@@ -42,9 +42,9 @@ export const SideBar = () => {
                 <ArrowRight className={st.menuItemIcons} />
                 {route.name}
               </NavLink>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
       <div
         className={

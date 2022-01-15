@@ -52,26 +52,18 @@ class PersonsPage extends React.Component {
   };
 
   changeSelect(e) {
-    let { name, value } = e.target;
-    this.setState({
-      [name]: value,
-      page: 1,
-    });
+    this.setState({ time: e.target.dataset.value, page: 1 });
   }
 
   render() {
-    const { trending, isLoading, time, type } = this.state;
+    const { trending, isLoading, time } = this.state;
     const movieList = trending.length > 0 && !isLoading;
 
     return (
       <div className="container">
         <TrendingPersonsList trending={trending} time={time} />
 
-        <ToolsMenu
-          time={time}
-          type={type}
-          changeSelect={this.changeSelect.bind(this)}
-        />
+        <ToolsMenu changeSelect={this.changeSelect.bind(this)} />
 
         {movieList && <ScrollButton scrollStepInPx="50" delayInMs="16" />}
 

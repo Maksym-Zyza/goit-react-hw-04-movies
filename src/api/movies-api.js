@@ -40,23 +40,11 @@ getSerchMovies.propTypes = {
   page: PropTypes.number.isRequired,
 };
 
-// запрос полной информации о фильме для страницы кинофильма
+// запрос детальной информации о фильме для страницы кинофильма
 async function getMovieDetails(movie_id) {
   try {
     const url = { url: `movie/${movie_id}` };
     const { data } = await axios(url, movie_id);
-    return data;
-  } catch (error) {
-    alert(error);
-    return [];
-  }
-}
-
-// запрос полной информации о фильме для страницы кинофильма
-async function getPersonDetails(person_id) {
-  try {
-    const url = { url: `person/${person_id}` };
-    const { data } = await axios(url, person_id);
     return data;
   } catch (error) {
     alert(error);
@@ -87,6 +75,42 @@ async function getMoviesReviews(movie_id) {
     return [];
   }
 }
+
+// запрос детальной информации для страницы персон
+async function getPersonDetails(person_id) {
+  try {
+    const url = { url: `person/${person_id}` };
+    const { data } = await axios(url, person_id);
+    return data;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+}
+
+// запрос детальной информации для страницы TV shows
+async function getTvDetails(movie_id) {
+  try {
+    const url = { url: `tv/${movie_id}` };
+    const { data } = await axios(url, movie_id);
+    return data;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+}
+
+const api = {
+  getMoviesTrending,
+  getSerchMovies,
+  getMovieDetails,
+  getPersonDetails,
+  getTvDetails,
+  getMovieCredits,
+  getMoviesReviews,
+};
+
+export default api;
 
 // Какие фильмы идут в кинотеатрах?
 // URL: /discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22
@@ -123,16 +147,3 @@ async function getMoviesReviews(movie_id) {
 
 // Какие фильмы Лиама Нисона получили самый высокий рейтинг "R"?
 // URL: /discover/movie?certification_country=US&certification=R&sort_by=revenue.desc&with_cast=3896
-
-// ===========
-
-const api = {
-  getMoviesTrending,
-  getSerchMovies,
-  getMovieDetails,
-  getPersonDetails,
-  getMovieCredits,
-  getMoviesReviews,
-};
-
-export default api;
