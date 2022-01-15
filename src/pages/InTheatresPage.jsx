@@ -4,14 +4,15 @@ import MoviesList from '../components/TrendingList/MoviesList';
 import ToolsMenu from '../components/ToolsMenu/ToolsMenu';
 import Button from '../components/Button/Button';
 import Loader from '../components/Loader/Loader';
+import { today } from '../helper/date';
 import api from '../api/movies-api';
 
-class HomePage extends React.Component {
+class InTheatres extends React.Component {
   state = {
     trending: [],
     isLoading: false,
     type: 'movie',
-    time: 'day',
+    time: today,
     page: 1,
   };
 
@@ -20,24 +21,20 @@ class HomePage extends React.Component {
   }
 
   componentDidUpdate(_, prevState) {
-    const { time, type } = this.state;
+    const { time } = this.state;
 
     if (prevState.time !== time && time) {
-      this.setState({ trending: [] });
-      this.fetchTrending();
-    }
-    if (prevState.type !== type && type) {
       this.setState({ trending: [] });
       this.fetchTrending();
     }
   }
 
   fetchTrending = () => {
-    const { type, time, page } = this.state;
+    const { page } = this.state;
     this.setState({ isLoading: true });
 
     api
-      .getMoviesTrending(type, time, page)
+      .getInTheatres('2021-11-15', '2022-01-15', page)
       .then(results => {
         this.setState(prevState => ({
           trending: [...prevState.trending, ...results],
@@ -76,4 +73,4 @@ class HomePage extends React.Component {
   }
 }
 
-export default HomePage;
+export default InTheatres;

@@ -100,6 +100,38 @@ async function getTvDetails(movie_id) {
   }
 }
 
+// What movies are in theatres?
+// URL: /discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22
+const getInTheatres = async (startDate, endDate, page) => {
+  try {
+    const url = {
+      url: `discover/movie?primary_release_date.gte=${startDate}&primary_release_date.lte=${endDate}`,
+      params: { page },
+    };
+    const { data } = await axios(url);
+    return data.results;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+};
+
+// Most popular movies
+// URL :/discover/movie?sort_by=popularity.desc
+const getMostPopular = async page => {
+  try {
+    const url = {
+      url: `discover/movie?sort_by=popularity.desc`,
+      params: { page },
+    };
+    const { data } = await axios(url);
+    return data.results;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+};
+
 const api = {
   getMoviesTrending,
   getSerchMovies,
@@ -108,42 +140,38 @@ const api = {
   getTvDetails,
   getMovieCredits,
   getMoviesReviews,
+  getInTheatres,
+  getMostPopular,
 };
 
 export default api;
 
-// Какие фильмы идут в кинотеатрах?
-// URL: /discover/movie?primary_release_date.gte=2014-09-15&primary_release_date.lte=2014-10-22
+// Які фільми мають найвищий рейтинг R?
+// URL :/discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc
 
-// Какие фильмы самые популярные?
-// URL: /discover/movie?sort_by=popularity.desc
+// Які найпопулярніші дитячі фільми?
+// URL :/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc
 
-// Какие фильмы имеют самый высокий рейтинг R?
-// URL: /discover/movie/?certification_country=US&certification=R&sort_by=vote_average.desc
+// Які найкращі фільми 2010 року?
+// URL :/discover/movie?primary_release_year=2010&sort_by=vote_average.desc
 
-// Какие детские фильмы самые популярные?
-// URL: /discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc
+// Які найкращі драми вийшли цього року?
+// URL :/discover/movie?with_genres=18&primary_release_year=2014
 
-// Какие лучшие фильмы 2010 года?
-// URL: /discover/movie?primary_release_year=2010&sort_by=vote_average.desc
+// Які науково-фантастичні фільми з найвищим рейтингом, в яких знімався Том Круз?
+// URL :/discover/movie?with_genres=878&with_cast=500&sort_by=vote_average.desc
 
-// Какие лучшие драмы вышли в этом году?
-// URL: /discover/movie?With_genres=18&primary_release_year=2014
+// Які комедії Вілла Феррелла є найкасовішими?
+// URL :/discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc
 
-// Какие научно-фантастические фильмы, в которых снимался Том Круз, получили самые высокие оценки?
-// URL: /discover/movie?with_genres=878&with_cast=500&sort_by=vote_average.desc
+// Бред Пітт і Едвард Нортон коли-небудь знімалися разом у кіно?
+// URL :/discover/movie?with_people=287,819&sort_by=vote_average.desc
 
-// Какие комедии Уилла Феррелла самые кассовые?
-// URL: /discover/movie?with_genres=35&with_cast=23659&sort_by=revenue.desc
+// Девід Фінчер коли-небудь працював з Руні Марою?
+// URL :/discover/movie?with_people=108916,7467&sort_by=popularity.desc
 
-// Снимались ли Брэд Питт и Эдвард Нортон вместе в кино?
-// URL: /discover/movie?with_people=287,819&sort_by=vote_average.desc
+// Які драми найкращі?
+// URL :/discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10
 
-// Дэвид Финчер когда-нибудь работал с Руни Мара?
-// URL: /discover/movie?with_people=108916,7467&sort_by=popularity.desc
-
-// Какие драмы самые лучшие?
-// URL: /discover/movie?with_genres=18&sort_by=vote_average.desc&vote_count.gte=10
-
-// Какие фильмы Лиама Нисона получили самый высокий рейтинг "R"?
-// URL: /discover/movie?certification_country=US&certification=R&sort_by=revenue.desc&with_cast=3896
+// Які фільми Ліама Нісона з найвищим рейтингом «R»?
+// URL :/discover/movie?certification_country=US&certification=R&sort_by=revenue.desc&with_cast=3896

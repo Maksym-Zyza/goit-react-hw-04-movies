@@ -6,6 +6,9 @@ import Loader from './components/Loader/Loader';
 const HomePage = lazy(() =>
   import('./pages/HomePage' /* webpackChunkName: "HomePage" */),
 );
+const InTheatresPage = lazy(() =>
+  import('./pages/InTheatresPage' /* webpackChunkName: "InTheatresPage" */),
+);
 const MoviesPage = lazy(() =>
   import('./pages/MoviesPage' /* webpackChunkName: "MoviesPage" */),
 );
@@ -38,8 +41,15 @@ export const Routes = [
     disabled: false,
   },
   {
-    name: 'Movies',
-    path: '/movies',
+    name: 'In theatres',
+    path: '/inTheatres',
+    exact: true,
+    component: InTheatresPage,
+    disabled: false,
+  },
+  {
+    name: 'Search movies',
+    path: '/searchMovies',
     exact: true,
     component: MoviesPage,
     disabled: false,
