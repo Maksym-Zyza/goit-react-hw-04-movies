@@ -11,10 +11,16 @@ export const SideBar = () => {
   const [sideBarOpened, setSideBarOpened] = useState(false);
 
   const toogleSideBar = () => {
-    !sideBarOpened
-      ? (document.body.style.overflow = 'hidden')
-      : (document.body.style.overflow = 'auto');
+    sideBarOpened
+      ? (document.body.style.overflow = 'auto')
+      : (document.body.style.overflow = 'hidden');
     setSideBarOpened(!sideBarOpened);
+  };
+
+  const handleBackdropClick = event => {
+    if (event.currentTarget === event.target) {
+      toogleSideBar();
+    }
   };
 
   return (
@@ -46,15 +52,14 @@ export const SideBar = () => {
           ))}
         </ul>
       </div>
+
       <div
         className={
           sideBarOpened
             ? `${st.sidebarOverlay} ${st.toggledOverlay}`
             : `${st.sidebarOverlay}`
         }
-        onClick={() => {
-          setSideBarOpened(false);
-        }}
+        onClick={handleBackdropClick}
       />
     </>
   );
