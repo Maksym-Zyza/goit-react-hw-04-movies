@@ -1,16 +1,13 @@
 import { useState } from 'react';
 import { Link, useLocation, withRouter } from 'react-router-dom';
 import defaultImg from '../../img/default.jpg';
-import { today } from '../../helper/date';
 
 const MoviesList = ({ trending, time }) => {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
   const location = useLocation();
   let title =
     time === 'day' ? 'Today trending movies' : 'Trending movies of the week';
-  // console.log('time >>>>', time);
-  // console.log('today >>>>', today);
-  if (time === today) {
+  if (time === 'inTheatres') {
     title = 'Movies in theatres';
   }
 
