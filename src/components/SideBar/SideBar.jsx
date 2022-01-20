@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import st from './SideBar.module.scss';
 import { ReactComponent as Options } from '../Icons/Options.svg';
 import { ReactComponent as ArrowRight } from '../Icons/ArrowRight.svg';
+import { ThemeToggle } from '../../components/ThemeToggle/ThemeToggle';
 import { Routes } from '../../routes';
 
 const pagesHidden = ['MovieDetails', 'PersonDetails', 'TvShowsDetails'];
@@ -31,6 +32,15 @@ export const SideBar = () => {
 
       <div
         className={
+          sideBarOpened
+            ? `${st.sidebarOverlay} ${st.toggledOverlay}`
+            : `${st.sidebarOverlay}`
+        }
+        onClick={handleBackdropClick}
+      />
+
+      <div
+        className={
           sideBarOpened ? `${st.sidebar} ${st.toggledSidebar}` : `${st.sidebar}`
         }
       >
@@ -51,16 +61,9 @@ export const SideBar = () => {
             </li>
           ))}
         </ul>
-      </div>
 
-      <div
-        className={
-          sideBarOpened
-            ? `${st.sidebarOverlay} ${st.toggledOverlay}`
-            : `${st.sidebarOverlay}`
-        }
-        onClick={handleBackdropClick}
-      />
+        <ThemeToggle />
+      </div>
     </>
   );
 };
