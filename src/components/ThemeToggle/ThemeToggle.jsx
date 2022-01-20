@@ -5,9 +5,11 @@ import { Toggler } from './Toggler';
 export const ThemeToggle = () => {
   const [theme, setTheme] = useState(window.localStorage?.getItem('theme'));
 
-  const changeTheme = ({ target }) => {
-    window.localStorage.setItem('theme', 'dark');
+  useEffect(() => {
+    window.localStorage.setItem('theme', 'light');
+  }, []);
 
+  const changeTheme = ({ target }) => {
     if (target.value === 'dark') {
       window.localStorage.setItem('theme', 'dark');
       setTheme('dark');
