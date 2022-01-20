@@ -6,6 +6,8 @@ export const ThemeToggle = () => {
   const [theme, setTheme] = useState(window.localStorage?.getItem('theme'));
 
   const changeTheme = ({ target }) => {
+    window.localStorage.setItem('theme', 'dark');
+
     if (target.value === 'dark') {
       window.localStorage.setItem('theme', 'dark');
       setTheme('dark');
