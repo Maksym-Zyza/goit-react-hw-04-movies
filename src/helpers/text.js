@@ -49,9 +49,9 @@ const ukreine = {
   PersonDetails: 'Деталі про людину',
   TvShowsDetails: 'Деталі телешоу',
   // Pages
-  TitleMovies: 'Сьогодні популярні фільми',
+  TitleMovies: 'Популярні фільми сьогодні',
   WeekMovies: 'Популярні фільми цього тижня',
-  TitleTrending: 'Сьогодні популярні телешоу',
+  TitleTrending: 'Популярні телешоу сьогодні',
   WeekTrending: 'Популярні телешоу цього тижня',
   TitleTheatres: 'Фільми в кіно',
   TitlePersons: 'Сьогодні популярні особи',

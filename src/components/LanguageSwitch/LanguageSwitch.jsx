@@ -13,6 +13,10 @@ export const LanguageSwitch = () => {
     }
   }, []);
 
+  useEffect(() => {
+    setLanguage(window.localStorage?.getItem('language'));
+  }, [language]);
+
   const changeLanguage = ({ target }) => {
     if (target.value === 'uk-UA') {
       window.localStorage.setItem('language', 'uk-UA');
