@@ -1,4 +1,5 @@
 const english = {
+  // Routes
   Home: 'Home',
   InTheatres: 'In theatres',
   SearchMovies: 'Search movies',
@@ -7,6 +8,7 @@ const english = {
   MovieDetails: 'MovieDetails',
   PersonDetails: 'PersonDetails',
   TvShowsDetails: 'TvShowsDetails',
+  // Pages
   TitleMovies: 'Today trending movies',
   WeekMovies: 'Trending movies of the week',
   TitleTrending: 'Today trending TV shows',
@@ -35,6 +37,7 @@ const english = {
 };
 
 const ukreine = {
+  // Routes
   Home: 'Головна',
   InTheatres: 'У кіно',
   SearchMovies: 'Пошук фільмів',
@@ -43,6 +46,7 @@ const ukreine = {
   MovieDetails: 'Про фільм',
   PersonDetails: 'Деталі про людину',
   TvShowsDetails: 'Деталі телешоу',
+  // Pages
   TitleMovies: 'Сьогодні популярні фільми',
   WeekMovies: 'Популярні фільми цього тижня',
   TitleTrending: 'Сьогодні популярні телешоу',
