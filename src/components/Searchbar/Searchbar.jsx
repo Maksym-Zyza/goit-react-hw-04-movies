@@ -1,6 +1,7 @@
 import React from 'react';
 import { ReactComponent as SearchLogo } from '../Icons/Search.svg';
 import st from './Searchbar.module.scss';
+import { text } from '../../helpers/text';
 
 class Searchbar extends React.Component {
   state = {
@@ -33,7 +34,7 @@ class Searchbar extends React.Component {
             type="text"
             autoComplete="off"
             autoFocus
-            placeholder="Search movies"
+            placeholder={text.SearchMovies}
             value={search}
             onChange={this.handleChange}
           />

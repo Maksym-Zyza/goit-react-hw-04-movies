@@ -1,9 +1,9 @@
-import React from 'react';
+import { text } from '../helpers/text';
 
 const Nothing = () => {
   return (
     <div>
-      <h2 className="pageTitle">Nothing, please start your search</h2>
+      <h2 className="pageTitle">{text.Nothing}</h2>
     </div>
   );
 };
