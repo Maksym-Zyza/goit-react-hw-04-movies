@@ -35,7 +35,6 @@ export const ThemeSwitch = () => {
         document.head.removeChild(el);
       }
     }
-    // console.log(document.head);
   }, [theme]);
 
   return (
