@@ -3,7 +3,7 @@ import ScrollButton from '../components/ScrollButton/ScrollButton';
 import MoviesList from '../components/TrendingList/MoviesList';
 import Button from '../components/Button/Button';
 import Loader from '../components/Loader/Loader';
-import { today, twoMonthsAgo } from '../helper/date';
+import { today, twoMonthsAgo } from '../helpers/date';
 import api from '../api/movies-api';
 
 class InTheatres extends React.Component {

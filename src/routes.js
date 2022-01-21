@@ -1,6 +1,7 @@
 import { Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Loader from './components/Loader/Loader';
+import { text } from './helpers/text';
 
 // Чанкование - загрузка js частями:
 const HomePage = lazy(() =>
@@ -34,56 +35,56 @@ const TvShowsDetailsPage = lazy(() =>
 
 export const Routes = [
   {
-    name: 'Home',
+    name: text.Home,
     path: '/',
     exact: true,
     component: HomePage,
     disabled: false,
   },
   {
-    name: 'In theatres',
+    name: text.InTheatres,
     path: '/inTheatres',
     exact: true,
     component: InTheatresPage,
     disabled: false,
   },
   {
-    name: 'Search movies',
+    name: text.SearchMovies,
     path: '/searchMovies',
     exact: true,
     component: MoviesPage,
     disabled: false,
   },
   {
-    name: 'Persons',
+    name: text.Persons,
     path: '/persons',
     exact: true,
     component: PersonsPage,
     disabled: false,
   },
   {
-    name: 'TV shows',
+    name: text.TvShows,
     path: '/tvShows',
     exact: true,
     component: TvShowsPage,
     disabled: false,
   },
   {
-    name: 'MovieDetails',
+    name: text.MovieDetails,
     path: '/movies/:movieId',
     exact: false,
     component: MovieDetailsPage,
     disabled: true,
   },
   {
-    name: 'PersonDetails',
+    name: text.PersonDetails,
     path: '/persons/:personId',
     exact: false,
     component: PersonDetailsPage,
     disabled: true,
   },
   {
-    name: 'TvShowsDetails',
+    name: text.TvShowsDetails,
     path: '/tvShows/:tvShowsId',
     exact: false,
     component: TvShowsDetailsPage,

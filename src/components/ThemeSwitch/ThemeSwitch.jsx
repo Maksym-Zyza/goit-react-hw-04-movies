@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react';
-import { darkTheme } from '../../darkTheme';
-import { Toggler } from './Toggler';
+import { darkTheme } from '../../helpers/darkTheme';
+import { ThemeToggler } from './ThemeToggler';
 
-export const ThemeToggle = () => {
+export const ThemeSwitch = () => {
   const [theme, setTheme] = useState(window.localStorage?.getItem('theme'));
 
   useEffect(() => {
-    window.localStorage.setItem('theme', 'light');
+    if (theme === null) {
+      window.localStorage.setItem('theme', 'light');
+    }
   }, []);
 
   const changeTheme = ({ target }) => {
@@ -33,12 +35,11 @@ export const ThemeToggle = () => {
         document.head.removeChild(el);
       }
     }
-    // console.log(document.head);
   }, [theme]);
 
   return (
     <div>
-      <Toggler changeTheme={changeTheme} theme={theme} />
+      <ThemeToggler changeTheme={changeTheme} theme={theme} />
     </div>
   );
 };

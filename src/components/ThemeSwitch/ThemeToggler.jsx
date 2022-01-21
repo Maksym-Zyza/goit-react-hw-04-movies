@@ -1,10 +1,11 @@
-import st from './ThemeToggle.module.scss';
+import st from './ThemeSwitch.module.scss';
 import { ReactComponent as Sun } from '../Icons/Sun.svg';
 import { ReactComponent as Moon } from '../Icons/Moon.svg';
+import { text } from '../../helpers/text';
 
-export const Toggler = ({ changeTheme, theme }) => (
+export const ThemeToggler = ({ changeTheme, theme }) => (
   <div className={st.btn}>
-    <p>Theme:</p>
+    <p>{text.Theme}:</p>
 
     {theme === 'light' && (
       <label>

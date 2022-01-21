@@ -1,13 +1,12 @@
 import { useState } from 'react';
 import { Link, useLocation, withRouter } from 'react-router-dom';
+import { text } from '../../helpers/text';
 import defaultImg from '../../img/default.jpg';
 
 const TrendingPersonsList = ({ trending, time }) => {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
   const location = useLocation();
-  // console.log('trending>>', trending);
-  const title =
-    time === 'day' ? 'Today trending persons' : 'Trending persons of the week';
+  const title = time === 'day' ? text.TitlePersons : text.WeekPersons;
 
   return (
     <div>

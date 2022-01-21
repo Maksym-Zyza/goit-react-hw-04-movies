@@ -7,7 +7,7 @@ const API_KEY = '523a15ded98cd05fab36993344058e43';
 axios.defaults.baseURL = BASE_URL;
 axios.defaults.params = {
   api_key: API_KEY,
-  language: 'en-US', // uk-UA
+  language: window.localStorage?.getItem('language'),
   page: 1,
 };
 

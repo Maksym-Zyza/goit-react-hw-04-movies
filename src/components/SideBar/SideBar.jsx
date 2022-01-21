@@ -3,10 +3,16 @@ import { NavLink } from 'react-router-dom';
 import st from './SideBar.module.scss';
 import { ReactComponent as Options } from '../Icons/Options.svg';
 import { ReactComponent as ArrowRight } from '../Icons/ArrowRight.svg';
-import { ThemeToggle } from '../../components/ThemeToggle/ThemeToggle';
+import { ThemeSwitch } from '../ThemeSwitch/ThemeSwitch';
+import { LanguageSwitch } from '../LanguageSwitch/LanguageSwitch';
+import { text } from '../..//helpers/text';
 import { Routes } from '../../routes';
 
-const pagesHidden = ['MovieDetails', 'PersonDetails', 'TvShowsDetails'];
+const pagesHidden = [
+  text.MovieDetails,
+  text.PersonDetails,
+  text.TvShowsDetails,
+];
 
 export const SideBar = () => {
   const [sideBarOpened, setSideBarOpened] = useState(false);
@@ -62,7 +68,8 @@ export const SideBar = () => {
           ))}
         </ul>
 
-        <ThemeToggle />
+        <ThemeSwitch />
+        <LanguageSwitch />
       </div>
     </>
   );
