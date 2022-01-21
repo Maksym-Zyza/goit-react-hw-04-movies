@@ -1,0 +1,39 @@
+.btn {
+  display: flex;
+  margin: 0 20px;
+  align-items: center;
+
+  p {
+    margin-right: 10px;
+    font-size: 19px;
+    font-weight: 600;
+    color: #4dbad4;
+  }
+
+  label {
+    font-size: 19px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  input {
+    display: none;
+  }
+
+  svg {
+    width: 35px;
+    cursor: pointer;
+  }
+
+  .en {
+    path {
+      fill: #4dbad4;
+    }
+  }
+  .uk {
+    path {
+      fill: #e4dac8;
+    }
+  }
+}

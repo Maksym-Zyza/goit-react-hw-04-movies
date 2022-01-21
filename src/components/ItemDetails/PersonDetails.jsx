@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import st from './Details.module.scss';
 import api from '../../api/movies-api';
 import defaultImg from '../../img/default.jpg';
+import { text } from '../../helpers/text';
 
 export default function PersonDetails() {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
@@ -25,29 +26,27 @@ export default function PersonDetails() {
 
       <div>
         <p>
-          Birthday: <span>{person.birthday}</span>
+          {text.Birthday}: <span>{person.birthday}</span>
         </p>
         <p>
-          Place of birth: <span>{person.place_of_birth}</span>
+          {text.PlaceOfBirth}: <span>{person.place_of_birth}</span>
         </p>
-        <h3>Biography </h3>
+        <h3>{text.Biography} </h3>
         <span>{person.biography}</span>
         <p>
-          Popularity:
-          <span>{String(Math.round(person.popularity))}</span>
+          {text.Popularity}:<span>{String(Math.round(person.popularity))}</span>
         </p>
         <p>
-          Department:
-          <span>{person.known_for_department}</span>
+          {text.Department}:<span>{person.known_for_department}</span>
         </p>
         <p>
-          Homepage:
+          {text.Homepage}:
           {person.homepage ? (
             <a href={person.homepage} target="blank">
               <span>{person.homepage}</span>
             </a>
           ) : (
-            <span>not found</span>
+            <span>{text.NotFound}</span>
           )}
         </p>
         {/* <h3>Also known as:</h3>

@@ -3,6 +3,7 @@ import st from './Details.module.scss';
 import api from '../../api/movies-api';
 import defaultImg from '../../img/default.jpg';
 import Loader from '../Loader/Loader';
+import { text } from '../../helpers/text';
 
 export default function TvShowsDetails() {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
@@ -40,23 +41,24 @@ export default function TvShowsDetails() {
             <p>
               First air date: <span>{movies.first_air_date}</span>
             </p>
-            <h3>Overview </h3>
+            <h3>{text.Overview} </h3>
             <span>{movies.overview}</span>
             <p>
-              Popularity: <span>{String(Math.round(movies.popularity))}</span>
+              {text.Popularity}:{' '}
+              <span>{String(Math.round(movies.popularity))}</span>
             </p>
             <p>
-              Rating: <span>{movies.vote_average}</span>
+              {text.Rating}: <span>{movies.vote_average}</span>
             </p>
             <p>
-              Count: <span>{movies.vote_count}</span>
+              {text.Count}: <span>{movies.vote_count}</span>
             </p>
-            <h3>Genres</h3>
+            <h3>{text.Genres}</h3>
             {movies.genres
               ? movies.genres.map(({ id, name }) => <p key={id}>{name}</p>)
               : `We don't have any ganres for this TV Shows.`}
 
-            <h3>Poster</h3>
+            <h3>{text.Poster}</h3>
             <img src={`${src}${movies?.backdrop_path}`} alt="Poster" />
           </div>
         </div>
