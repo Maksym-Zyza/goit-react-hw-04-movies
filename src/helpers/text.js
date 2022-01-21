@@ -34,6 +34,8 @@ const english = {
   Back: 'Back',
   Theme: 'Theme',
   Language: 'Language',
+  Nothing: 'Nothing, please start your search',
+  NoReviews: `We don't have any reviews for this movie.`,
 };
 
 const ukreine = {
@@ -72,6 +74,8 @@ const ukreine = {
   Back: 'Назад',
   Theme: 'Tема',
   Language: 'Мова',
+  Nothing: 'Нічого не знайдено, будь ласка почніть пошук',
+  NoReviews: `Немає відгуків на цей фільм.`,
 };
 
 const language = window.localStorage?.getItem('language');

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Loader from '../../components/Loader/Loader';
 import api from '../../api/movies-api';
+import { text } from '../../helpers/text';
 
 const MovieReviews = () => {
   const [reviews, setReviews] = useState([]);
@@ -33,7 +34,7 @@ const MovieReviews = () => {
                   <p className="text">{content}</p>
                 </li>
               ))
-            : `We don't have any reviews for this movie.`}
+            : text.NoReviews}
         </ul>
       </div>
 
