@@ -9,8 +9,13 @@
     display: inline-block;
     width: 380px;
     margin-right: 30px;
+    cursor: pointer;
     filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
     box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
+    &:hover {
+      transition: 1s linear;
+      box-shadow: 0 0 20px rgb(1, 180, 228, 0.9);
+    }
   }
 
   div {
@@ -28,6 +33,7 @@
       display: block;
       word-break: break-word;
       text-align: justify;
+      color: #01b4e4;
 
       a {
         text-decoration: none;
@@ -36,7 +42,7 @@
       span {
         padding-left: 4px;
         color: #01b4e4;
-        font-weight: 500;
+        font-weight: 600;
         text-decoration: none;
       }
     }
@@ -59,6 +65,8 @@
     color: white;
     background-color: #01b4e4;
     border-radius: 3px;
+    transition: 0.5s linear;
+    box-shadow: 0 0 20px rgb(1 180 228 / 50%);
   }
 
   .linkSign {

@@ -6,6 +6,7 @@ export const LanguageSwitch = () => {
   const [language, setLanguage] = useState(
     window.localStorage?.getItem('language'),
   );
+  console.log('language>>', language);
 
   useEffect(() => {
     if (language === null) {
@@ -42,7 +43,7 @@ export const LanguageSwitch = () => {
             onChange={changeLanguage}
             defaultChecked={language === 'uk-UA'}
           />
-          En
+          Uk
         </label>
       )}
 
@@ -55,7 +56,7 @@ export const LanguageSwitch = () => {
             onChange={changeLanguage}
             defaultChecked={language === 'en-US'}
           />
-          Uk
+          En
         </label>
       )}
     </div>

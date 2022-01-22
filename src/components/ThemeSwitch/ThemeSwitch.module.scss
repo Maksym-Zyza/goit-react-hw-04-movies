@@ -4,10 +4,10 @@
   align-items: center;
 
   p {
-    margin-right: 10px;
+    margin-right: 8px;
     font-size: 19px;
     font-weight: 600;
-    color: #4dbad4;
+    color: #47b4e4;
   }
 
   input {
@@ -17,11 +17,16 @@
   svg {
     width: 31px;
     cursor: pointer;
+    border: 2px grey;
+    &:hover {
+      transition: 1s linear;
+      transform: scale(1.1);
+    }
   }
 
   .moon {
     path {
-      fill: #4dbad4;
+      fill: #fff;
     }
   }
   .sun {
