@@ -66,8 +66,11 @@ img {
     filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
     box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
     &:hover {
-      box-shadow: inset -1px -1px 4px rgb(98, 224, 224),
-        inset 1px 1px 4px rgba(112, 204, 204, 0.53);
+      &:hover {
+        // transform: scale(1.03);
+        transition: 1s linear;
+        box-shadow: 0 0 20px rgb(1, 180, 228, 0.9);
+      }
     }
 
     img {
@@ -134,6 +137,7 @@ img {
 
   &:hover,
   &:focus {
+    transition: 0.2s linear;
     transform: scale(1.04);
   }
 }

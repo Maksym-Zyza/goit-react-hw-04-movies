@@ -64,7 +64,7 @@ const ukreine = {
   Count: 'Підрахунок голосів',
   Genres: '«Жанри»',
   Cast: 'Актори',
-  Reviews: 'Відгуки',
+  Reviews: 'Рецензії',
   Birthday: 'День народження',
   PlaceOfBirth: 'Місце народження',
   Biography: 'Біографія',
@@ -80,4 +80,4 @@ const ukreine = {
 
 const language = window.localStorage?.getItem('language');
 
-export const text = language === 'en-US' ? english : ukreine;
+export const text = language === 'uk-UA' ? ukreine : english;
