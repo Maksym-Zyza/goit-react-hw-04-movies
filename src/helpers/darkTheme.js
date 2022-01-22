@@ -160,6 +160,9 @@ export const darkTheme = `
       color: rgb(252, 242, 224);
       background-color: rgb(37, 140, 162);
     }
+    .LanguageSwitch_btn__2zOty label {
+      color: #e4dac8;
+    }
     .Navigetion_nav__1OCpV {
       background-color: rgb(23, 66, 99);
       box-shadow: rgba(27, 27, 26, 0.25) -2px -2px 4px,
