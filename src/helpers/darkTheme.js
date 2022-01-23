@@ -8,7 +8,7 @@ export const darkTheme = `
     textarea,
     select,
     button {
-      background-color: #1b1b1a;
+      background-color: #003644;
     }
     html,
     body,
@@ -293,5 +293,10 @@ export const darkTheme = `
 
     .Modal_content__BZbGL{
       background-color: #1b1b1a !important;
+    }
+    .Modal_cancelBtn__TI3bQ{
+      color: #fff;
+      background: #01b4e4;
+      border-radius: 5px;
     }
 `;

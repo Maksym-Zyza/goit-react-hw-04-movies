@@ -2,7 +2,7 @@ import { useState } from 'react';
 import st from './ToolsMenu.module.scss';
 import { ReactComponent as ToolDots } from '../../components/Icons/DotsMenu.svg';
 import { ReactComponent as ArrowRight } from '../../components/Icons/ArrowRight.svg';
-// import { Select } from '../../components/Inputs/Select';
+import { text } from '../../helpers/text';
 
 export default function ToolsMenu({ changeSelect }) {
   const [showing, setShowing] = useState(false);
@@ -35,11 +35,11 @@ export default function ToolsMenu({ changeSelect }) {
             <ul>
               <li onClick={changeChange} data-value={'day'}>
                 <ArrowRight />
-                Day
+                {text.Day}
               </li>
               <li onClick={changeChange} data-value={'week'}>
                 <ArrowRight />
-                Week
+                {text.Week}
               </li>
             </ul>
           </div>

@@ -54,7 +54,7 @@ export default function MovieDetails() {
             <p>
               {text.Release}: <span>{movies.release_date}</span>
             </p>
-            <h3>{text.Overview} </h3>
+            <h3>{text.Overview}: </h3>
             <span>{movies.overview}</span>
             <p>
               {text.Popularity}:{' '}
@@ -66,7 +66,7 @@ export default function MovieDetails() {
             <p>
               {text.Count}: <span>{movies.vote_count}</span>
             </p>
-            <h3>{text.Genres}</h3>
+            <h3>{text.Genres}:</h3>
             {movies.genres
               ? movies.genres.map(({ id, name }) => <p key={id}>{name}</p>)
               : `We don't have any ganres for this movie.`}
