@@ -45,8 +45,10 @@ export default function PersonDetails() {
         <p>
           {text.PlaceOfBirth}: <span>{person.place_of_birth}</span>
         </p>
-        <h3>{text.Biography} </h3>
+
+        {person.biography && <h3>{text.Biography}: </h3>}
         <span>{person.biography}</span>
+
         <p>
           {text.Popularity}:<span>{String(Math.round(person.popularity))}</span>
         </p>

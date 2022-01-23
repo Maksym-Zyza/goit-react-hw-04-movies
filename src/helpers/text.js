@@ -34,8 +34,11 @@ const english = {
   Back: 'Back',
   Theme: 'Theme',
   Language: 'Language',
+  Cancel: 'Cancel',
   Nothing: 'Nothing, please start your search',
   NoReviews: `We don't have any reviews for this movie.`,
+  Day: 'Day',
+  Week: 'Week',
 };
 
 const ukreine = {
@@ -62,7 +65,7 @@ const ukreine = {
   Popularity: 'Популярність',
   Rating: 'Рейтинг',
   Count: 'Підрахунок голосів',
-  Genres: '«Жанри»',
+  Genres: 'Жанри',
   Cast: 'Актори',
   Reviews: 'Рецензії',
   Birthday: 'День народження',
@@ -74,8 +77,11 @@ const ukreine = {
   Back: 'Назад',
   Theme: 'Tема',
   Language: 'Мова',
+  Cancel: 'Закрити',
   Nothing: 'Нічого не знайдено, будь ласка почніть пошук',
   NoReviews: `Немає відгуків на цей фільм.`,
+  Day: 'За день',
+  Week: 'За тиждень',
 };
 
 const language = window.localStorage?.getItem('language');
