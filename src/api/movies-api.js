@@ -11,7 +11,7 @@ axios.defaults.params = {
   page: 1,
 };
 
-// список популярных фильмов на сегодня для создания коллекции на главной странице
+// список популярных фильмов
 const getMoviesTrending = async (type, time, page) => {
   try {
     const url = { url: `trending/${type}/${time}`, params: { page } };
@@ -23,7 +23,7 @@ const getMoviesTrending = async (type, time, page) => {
   }
 };
 
-// поиск кинофильма по ключевому слову на странице фильмов
+// поиск кинофильма по ключевому слову
 async function getSerchMovies(query, page) {
   try {
     const url = { url: 'search/movie', params: { query, page } };
@@ -40,7 +40,7 @@ getSerchMovies.propTypes = {
   page: PropTypes.number.isRequired,
 };
 
-// запрос детальной информации о фильме для страницы кинофильма
+// запрос детальной информации о фильме
 async function getMovieDetails(movie_id) {
   try {
     const url = { url: `movie/${movie_id}` };
@@ -52,7 +52,7 @@ async function getMovieDetails(movie_id) {
   }
 }
 
-// запрос информации о актёрском составе для страницы кинофильма
+// запрос информации о актёрском составе
 async function getMovieCredits(movie_id) {
   try {
     const url = { url: `movie/${movie_id}/credits` };
@@ -70,6 +70,42 @@ async function getMoviesReviews(movie_id) {
     const url = { url: `movie/${movie_id}/reviews` };
     const response = axios(url, movie_id);
     return response;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+}
+
+// Get the list of popular people. Updates daily.
+async function getPersons(page) {
+  try {
+    const url = { url: `person/popular`, params: { page } };
+    const { data } = await axios(url);
+    return data;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+}
+
+// Get the images for a person.
+async function getPersonPopular() {
+  try {
+    const url = { url: `person/popular` };
+    const { data } = await axios(url);
+    return data;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+}
+
+// запрос детальной информации для страницы персон
+async function getPersonImages(person_id) {
+  try {
+    const url = { url: `person/${person_id}/images` };
+    const { data } = await axios(url, person_id);
+    return data;
   } catch (error) {
     alert(error);
     return [];
@@ -136,6 +172,9 @@ const api = {
   getMoviesTrending,
   getSerchMovies,
   getMovieDetails,
+  getPersons,
+  getPersonPopular,
+  getPersonImages,
   getPersonDetails,
   getTvDetails,
   getMovieCredits,

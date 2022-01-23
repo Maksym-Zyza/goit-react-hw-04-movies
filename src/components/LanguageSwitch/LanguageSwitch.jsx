@@ -6,7 +6,6 @@ export const LanguageSwitch = () => {
   const [language, setLanguage] = useState(
     window.localStorage?.getItem('language'),
   );
-  console.log('language>>', language);
 
   useEffect(() => {
     if (language === null) {

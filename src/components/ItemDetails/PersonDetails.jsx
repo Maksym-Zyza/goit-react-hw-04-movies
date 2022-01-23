@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react';
 import st from './Details.module.scss';
 import api from '../../api/movies-api';
+import PersonImages from '../../components/Person/PersonImages';
 import defaultImg from '../../img/default.jpg';
 import { text } from '../../helpers/text';
 
 export default function PersonDetails() {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
   const [person, setPerson] = useState({});
+  // MODAL
+  const [showModal, setShowModal] = useState(false);
+  const toggleModal = () => {
+    !showModal
+      ? (document.body.style.overflow = 'hidden')
+      : (document.body.style.overflow = 'auto');
+    setShowModal(!showModal);
+  };
 
   useEffect(() => {
     const movieId = window.location.pathname.split('/').pop();
@@ -17,12 +26,17 @@ export default function PersonDetails() {
 
   return (
     <div className={st.details}>
+      <PersonImages showModal={showModal} toggleModal={toggleModal} />
+
       <h2>{person.name}</h2>
-      {person?.profile_path ? (
-        <img src={`${src}${person?.profile_path}`} alt="Person poster" />
-      ) : (
-        <img src={defaultImg} alt="Was not found" />
-      )}
+
+      <span onClick={toggleModal}>
+        {person?.profile_path ? (
+          <img src={`${src}${person?.profile_path}`} alt="Person poster" />
+        ) : (
+          <img src={defaultImg} alt="Was not found" />
+        )}
+      </span>
 
       <div>
         <p>
