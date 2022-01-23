@@ -3,7 +3,7 @@ const english = {
   Home: 'Home',
   InTheatres: 'In theatres',
   SearchMovies: 'Search movies',
-  Persons: 'Persons',
+  Persons: 'People',
   TvShows: 'TV shows',
   MovieDetails: 'MovieDetails',
   PersonDetails: 'PersonDetails',

@@ -8,7 +8,7 @@ import api from '../api/movies-api';
 
 class PersonsPage extends React.Component {
   state = {
-    trending: [],
+    person: [],
     isLoading: false,
     type: 'person',
     time: 'day',
@@ -16,23 +16,24 @@ class PersonsPage extends React.Component {
   };
 
   componentDidMount() {
-    this.fetchTrending();
+    this.fetchPersons();
   }
 
   componentDidUpdate(_, prevState) {
-    const { time, type } = this.state;
+    const { time, type, person } = this.state;
+    console.log(person);
 
     if (prevState.time !== time && time) {
-      this.setState({ trending: [] });
-      this.fetchTrending();
+      this.setState({ person: [] });
+      this.fetchPersons();
     }
     if (prevState.type !== type && type) {
-      this.setState({ trending: [] });
-      this.fetchTrending();
+      this.setState({ person: [] });
+      this.fetchPersons();
     }
   }
 
-  fetchTrending = () => {
+  fetchPersons = () => {
     const { type, time, page } = this.state;
     this.setState({ isLoading: true });
 
@@ -40,7 +41,7 @@ class PersonsPage extends React.Component {
       .getMoviesTrending(type, time, page)
       .then(results => {
         this.setState(prevState => ({
-          trending: [...prevState.trending, ...results],
+          person: [...prevState.person, ...results],
           page: prevState.page + 1,
         }));
       })
@@ -56,18 +57,18 @@ class PersonsPage extends React.Component {
   }
 
   render() {
-    const { trending, isLoading, time } = this.state;
-    const movieList = trending.length > 0 && !isLoading;
+    const { person, isLoading, time } = this.state;
+    const movieList = person.length > 0 && !isLoading;
 
     return (
       <div className="container">
-        <TrendingPersonsList trending={trending} time={time} />
+        <TrendingPersonsList trending={person} time={time} />
 
         <ToolsMenu changeSelect={this.changeSelect.bind(this)} />
 
         {movieList && <ScrollButton scrollStepInPx="50" delayInMs="16" />}
 
-        {movieList && <Button onClick={this.fetchTrending} />}
+        {movieList && <Button onClick={this.fetchPersons} />}
 
         {isLoading && <Loader isLoading={isLoading} />}
       </div>

@@ -28,9 +28,7 @@ const TrendingPersonsList = ({ trending, time }) => {
                 <img src={defaultImg} alt="Was not found" />
               )}
               <h4> {name}</h4>
-              <div>
-                <span>{Math.round(popularity)}</span>
-              </div>
+              <div>{popularity && <span>{Math.round(popularity)}</span>}</div>
             </li>
           </Link>
         ))}

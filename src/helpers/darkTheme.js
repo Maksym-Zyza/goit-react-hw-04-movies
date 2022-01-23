@@ -290,4 +290,8 @@ export const darkTheme = `
     embed[type="application/pdf"] {
       filter: invert(100%) contrast(90%);
     }
+
+    .Modal_content__BZbGL{
+      background-color: #1b1b1a !important;
+    }
 `;
