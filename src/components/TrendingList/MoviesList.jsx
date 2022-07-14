@@ -32,7 +32,7 @@ const MoviesList = ({ trending, time }) => {
               )}
               <h4> {title}</h4>
               <div>
-                <span>{vote_average}</span>
+                <span>{vote_average.toFixed(1)}</span>
               </div>
             </li>
           </Link>
