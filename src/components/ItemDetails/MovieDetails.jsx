@@ -6,6 +6,7 @@ import defaultImg from '../../img/default.jpg';
 import Loader from '../../components/Loader/Loader';
 import MovieCast from '../../components/MovieCast/MovieCast';
 import MovieReviews from '../../components/MovieReviews/MovieReviews';
+import MovieVideo from './MovieVideo';
 
 export default function MovieDetails() {
   const [src] = useState('https://image.tmdb.org/t/p/w500');
@@ -44,13 +45,22 @@ export default function MovieDetails() {
       {movies ? (
         <div className={st.details}>
           <h2>{movies.title}</h2>
-          {movies?.poster_path ? (
-            <img src={`${src}${movies?.poster_path}`} alt="Movies poster" />
-          ) : (
-            <img src={defaultImg} alt="Was not found" />
-          )}
+          <div
+            className={st.imgHover}
+            onClick={() => {
+              alert('MovieVideo');
+            }}
+          >
+            {movies?.poster_path ? (
+              <img src={`${src}${movies?.poster_path}`} alt="Movies poster" />
+            ) : (
+              <img src={defaultImg} alt="Was not found" />
+            )}
 
-          <div className={st.details}>
+            <MovieVideo />
+          </div>
+
+          <div className={st.movieDetails}>
             <p>
               {text.Release}: <span>{movies.release_date}</span>
             </p>

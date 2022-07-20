@@ -30,7 +30,7 @@ export default function PersonDetails() {
 
       <h2>{person.name}</h2>
 
-      <span onClick={toggleModal}>
+      <span className={st.imgHover} onClick={toggleModal}>
         {person?.profile_path ? (
           <img src={`${src}${person?.profile_path}`} alt="Person poster" />
         ) : (
