@@ -1,26 +1,35 @@
 .details {
+  position: relative;
+
   h2 {
     font-size: 20px;
     text-align: center;
     color: #01b4e4;
   }
 
-  img {
+  .imgHover {
     display: inline-block;
-    width: 380px;
-    margin-right: 30px;
     cursor: pointer;
-    filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
-    box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
+
+    img {
+      width: 380px;
+      filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
+      box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
+    }
+
     &:hover {
       transition: 1s linear;
       box-shadow: 0 0 20px rgb(1, 180, 228, 0.9);
     }
+    &:hover path {
+      transition: 1s linear;
+      fill: rgb(1, 180, 228, 0.9);
+    }
   }
 
-  div {
+  .movieDetails {
     position: absolute;
-    left: 450px;
+    left: 430px;
     top: 30px;
     display: inline-block;
     padding-right: 40px;
@@ -77,4 +86,29 @@
     font-size: 15px;
     padding-left: 5px;
   }
+}
+
+.btnPlay {
+  position: absolute !important;
+  left: 6rem !important;
+  top: 12rem !important;
+  cursor: pointer;
+  & svg path {
+    fill: rgb(1, 180, 228, 0.5);
+  }
+}
+
+.movieVideo {
+  & > div {
+    margin: 1rem auto;
+    width: 93% !important;
+    height: 27rem !important;
+  }
+}
+
+.noVideo {
+  margin: 4rem auto;
+  text-align: center;
+  font-size: 22px;
+  color: #47b4e4;
 }

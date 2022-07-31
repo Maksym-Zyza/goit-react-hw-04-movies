@@ -39,6 +39,7 @@ const english = {
   NoReviews: `We don't have any reviews for this movie.`,
   Day: 'Day',
   Week: 'Week',
+  noVideo: 'The video does not exist, try changing the language',
 };
 
 const ukreine = {
@@ -82,6 +83,7 @@ const ukreine = {
   NoReviews: `Немає відгуків на цей фільм.`,
   Day: 'За день',
   Week: 'За тиждень',
+  noVideo: 'Відео не існує, спробуйте змінити мову',
 };
 
 const language = window.localStorage?.getItem('language');

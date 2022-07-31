@@ -12,9 +12,10 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 100%;
+  width: 80%;
   height: 87%;
   overflow-y: auto;
+  margin: 20px 0;
   padding: 15px;
   padding-top: 40px;
   background-color: #fff;
@@ -22,9 +23,12 @@
   transform: translate(-50%, -50%);
   box-shadow: 0 3px 4px rgba(45, 44, 46, 0.3);
   z-index: 11;
-  @media screen and (min-width: 500px) {
-    padding-top: 40px;
-    width: 530px;
+  @media screen and (max-width: 500px) {
+    width: 95%;
+  }
+
+  img {
+    margin: 1rem auto;
   }
 }
 
