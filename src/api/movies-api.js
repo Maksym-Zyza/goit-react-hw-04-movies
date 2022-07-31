@@ -52,6 +52,17 @@ async function getMovieDetails(movie_id) {
   }
 }
 
+async function getMovieVideo(movieId) {
+  try {
+    const url = { url: `movie/${movieId}/videos` };
+    const { data } = await axios(url, movieId);
+    return data;
+  } catch (error) {
+    alert(error);
+    return [];
+  }
+}
+
 // запрос информации о актёрском составе
 async function getMovieCredits(movie_id) {
   try {
@@ -172,6 +183,7 @@ const api = {
   getMoviesTrending,
   getSerchMovies,
   getMovieDetails,
+  getMovieVideo,
   getPersons,
   getPersonPopular,
   getPersonImages,

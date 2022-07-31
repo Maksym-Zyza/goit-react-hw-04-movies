@@ -9,9 +9,10 @@
 
   .imgHover {
     display: inline-block;
+    cursor: pointer;
+
     img {
       width: 380px;
-      cursor: pointer;
       filter: drop-shadow(4px 4px 4px rgba(55%, 55%, 55%, 0.6));
       box-shadow: 0 0 20px rgba(55%, 55%, 55%, 0.5);
     }
@@ -95,4 +96,19 @@
   & svg path {
     fill: rgb(1, 180, 228, 0.5);
   }
+}
+
+.movieVideo {
+  & > div {
+    margin: 1rem auto;
+    width: 93% !important;
+    height: 27rem !important;
+  }
+}
+
+.noVideo {
+  margin: 4rem auto;
+  text-align: center;
+  font-size: 22px;
+  color: #47b4e4;
 }

@@ -1,11 +1,15 @@
-import React from 'react';
+import { useState } from 'react';
+import ReactPlayer from 'react-player';
 import st from './Details.module.scss';
-import { ReactComponent as Play } from '../Icons/Play.svg';
+import Loader from '../../components/Loader/Loader';
 
-export default function MovieVideo() {
+export default function MovieVideo({ videoKey }) {
   return (
-    <div className={st.btnPlay}>
-      <Play />
+    <div className={st.movieVideo}>
+      <ReactPlayer
+        controls
+        url={`https://www.youtube.com/watch?v=${videoKey}`}
+      />
     </div>
   );
 }
