@@ -8,6 +8,7 @@ export default function MovieVideo({ videoKey }) {
     <div className={st.movieVideo}>
       <ReactPlayer
         controls
+        playing={true}
         url={`https://www.youtube.com/watch?v=${videoKey}`}
       />
     </div>
