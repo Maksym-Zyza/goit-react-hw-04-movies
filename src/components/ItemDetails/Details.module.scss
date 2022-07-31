@@ -8,6 +8,7 @@
   }
 
   .imgHover {
+    position: relative;
     display: inline-block;
     cursor: pointer;
 
@@ -90,11 +91,15 @@
 
 .btnPlay {
   position: absolute !important;
-  left: 6rem !important;
+  left: 24% !important;
   top: 12rem !important;
   cursor: pointer;
   & svg path {
     fill: rgb(1, 180, 228, 0.5);
+  }
+  @media screen and (max-width: 425px) {
+    left: 22% !important;
+    top: 11rem !important;
   }
 }
 
