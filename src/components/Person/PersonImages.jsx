@@ -30,6 +30,13 @@ const PersonImages = ({ showModal, toggleModal }) => {
       .finally(() => setIsLoading(false));
   }, []);
 
+  useEffect(() => {
+    if (showModal)
+      return () => {
+        document.body.style.overflow = 'auto';
+      };
+  }, [showModal]);
+
   return (
     <div>
       {showModal && (

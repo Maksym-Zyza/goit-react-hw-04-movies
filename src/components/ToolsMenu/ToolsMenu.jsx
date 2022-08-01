@@ -7,7 +7,7 @@ import { text } from '../../helpers/text';
 export default function ToolsMenu({ changeSelect }) {
   const [showing, setShowing] = useState(false);
 
-  const toogleTools = () => {
+  const toggleTools = () => {
     !showing
       ? (document.body.style.overflow = 'hidden')
       : (document.body.style.overflow = 'auto');
@@ -16,18 +16,18 @@ export default function ToolsMenu({ changeSelect }) {
 
   const changeChange = event => {
     changeSelect(event);
-    toogleTools();
+    toggleTools();
   };
 
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
-      toogleTools();
+      toggleTools();
     }
   };
 
   return (
     <div>
-      <ToolDots className={st.toolDots} onClick={toogleTools} />
+      <ToolDots className={st.toolDots} onClick={toggleTools} />
 
       {showing && (
         <div className={st.toolBarWrapper} onClick={handleBackdropClick}>

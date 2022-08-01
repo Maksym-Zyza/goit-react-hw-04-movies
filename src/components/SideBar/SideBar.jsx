@@ -17,7 +17,7 @@ const pagesHidden = [
 export const SideBar = () => {
   const [sideBarOpened, setSideBarOpened] = useState(false);
 
-  const toogleSideBar = () => {
+  const toggleSideBar = () => {
     sideBarOpened
       ? (document.body.style.overflow = 'auto')
       : (document.body.style.overflow = 'hidden');
@@ -26,14 +26,14 @@ export const SideBar = () => {
 
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
-      toogleSideBar();
+      toggleSideBar();
     }
   };
 
   return (
     <>
       <div className={st.burgerMenu}>
-        <Options onClick={toogleSideBar} />
+        <Options onClick={toggleSideBar} />
       </div>
 
       <div
@@ -58,7 +58,7 @@ export const SideBar = () => {
               <NavLink
                 to={route.path}
                 exact={route.exact}
-                onClick={toogleSideBar}
+                onClick={toggleSideBar}
                 activeClassName={st.NavLinkActive}
               >
                 <ArrowRight className={st.menuItemIcons} />
