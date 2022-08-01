@@ -70,6 +70,13 @@ export default function MovieDetails() {
     movies && getVideo();
   }, [movies]);
 
+  useEffect(() => {
+    if (showModal)
+      return () => {
+        document.body.style.overflow = 'auto';
+      };
+  }, [showModal]);
+
   return (
     <>
       {movies ? (
